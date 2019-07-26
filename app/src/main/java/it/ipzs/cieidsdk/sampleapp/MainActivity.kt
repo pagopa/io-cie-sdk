@@ -12,6 +12,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity(), Callback {
 
+    const val MY_CONSTANT = "Constants"
     companion object {
         const val KEY_URL = "KEY_URL"
     }
