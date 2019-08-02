@@ -25,7 +25,6 @@ import it.ipzs.cieidsdk.url.DeepLinkInfo
 import it.ipzs.cieidsdk.util.CieIDSdkLogger
 import okhttp3.ResponseBody
 import retrofit2.Response
-import java.lang.NullPointerException
 import java.net.SocketTimeoutException
 import java.net.UnknownHostException
 import javax.net.ssl.SSLProtocolException
