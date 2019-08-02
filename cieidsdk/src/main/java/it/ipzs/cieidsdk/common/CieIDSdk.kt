@@ -172,7 +172,8 @@ object CieIDSdk : NfcAdapter.ReaderCallback {
 
 
     /**
-     * start must be called before accessing nfc features
+     * Set the SDK callback and init NFC adapter.
+     * start method must be called before accessing nfc features
      * */
     fun start(activity: Activity, cb: Callback) {
         callback = cb
