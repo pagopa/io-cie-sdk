@@ -82,6 +82,13 @@ interface Callback {
 
 object CieIDSdk : NfcAdapter.ReaderCallback {
 
+    private var nfcAdapter: NfcAdapter? = null
+    private var callback: Callback? = null
+    internal var deepLinkInfo: DeepLinkInfo = DeepLinkInfo()
+    internal var ias: Ias? = null
+    var enableLog: Boolean = false
+    var pin: String = ""
+
 
     @SuppressLint("CheckResult")
     fun call(certificate: ByteArray) {
@@ -163,22 +170,15 @@ object CieIDSdk : NfcAdapter.ReaderCallback {
         }
     }
 
-    private var nfcAdapter: NfcAdapter? = null
-    private var callback: Callback? = null
 
-
-    var enableLog: Boolean = false
-
-
+    /**
+     * start must be called before accessing nfc features
+     * */
     fun start(activity: Activity, cb: Callback) {
         callback = cb
-        getNfcAdapter(activity)
+        nfcAdapter = (activity.getSystemService(Context.NFC_SERVICE) as NfcManager).defaultAdapter
     }
 
-
-    var pin: String = ""
-    internal var deepLinkInfo: DeepLinkInfo = DeepLinkInfo()
-    internal var ias: Ias? = null
 
     fun setUrl(url: String) {
         val appLinkData = Uri.parse(url)
@@ -195,21 +195,12 @@ object CieIDSdk : NfcAdapter.ReaderCallback {
     }
 
     /**
-     * Return nfcAdapter if it's not null, otherwise a system service call
-     * is performed to retrieve it
-     */
-    private fun getNfcAdapter(context: Context) : NfcAdapter? {
-        if(nfcAdapter != null) {
-            return nfcAdapter
-        }
-        nfcAdapter = (context.getSystemService(Context.NFC_SERVICE) as NfcManager).defaultAdapter
-        return nfcAdapter
-    }
-
-    /**
      * Call on Resume of NFC Activity
      */
     fun startNFCListening(activity: Activity) {
+        if(nfcAdapter == null){
+            throw NullPointerException("ncfAdapter is null")
+        }
         nfcAdapter?.enableReaderMode(
             activity, this, NfcAdapter.FLAG_READER_NFC_A or
                     NfcAdapter.FLAG_READER_NFC_B or NfcAdapter.FLAG_READER_SKIP_NDEF_CHECK, null
@@ -233,7 +224,7 @@ object CieIDSdk : NfcAdapter.ReaderCallback {
     /**
      *  Check if NFC is enabled on Device
      */
-    fun isNFCEnabled(activity: Activity): Boolean = hasFeatureNFC(activity) && getNfcAdapter(activity)?.isEnabled ?: false
+    fun isNFCEnabled(activity: Activity): Boolean = hasFeatureNFC(activity) && nfcAdapter?.isEnabled ?: false
 
     /**
     Open NFC Settings PAge
