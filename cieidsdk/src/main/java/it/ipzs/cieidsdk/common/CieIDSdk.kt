@@ -198,9 +198,6 @@ object CieIDSdk : NfcAdapter.ReaderCallback {
      * Call on Resume of NFC Activity
      */
     fun startNFCListening(activity: Activity) {
-        if(nfcAdapter == null){
-            throw NullPointerException("ncfAdapter is null")
-        }
         nfcAdapter?.enableReaderMode(
             activity, this, NfcAdapter.FLAG_READER_NFC_A or
                     NfcAdapter.FLAG_READER_NFC_B or NfcAdapter.FLAG_READER_SKIP_NDEF_CHECK, null
