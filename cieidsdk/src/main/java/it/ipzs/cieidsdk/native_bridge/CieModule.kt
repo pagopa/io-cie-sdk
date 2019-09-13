@@ -12,10 +12,6 @@ import com.facebook.react.bridge.Arguments.createMap
 import com.facebook.react.bridge.WritableMap
 
 
-
-
-
-
 class CieModule(reactContext: ReactApplicationContext) : ReactContextBaseJavaModule(reactContext), Callback {
 
 

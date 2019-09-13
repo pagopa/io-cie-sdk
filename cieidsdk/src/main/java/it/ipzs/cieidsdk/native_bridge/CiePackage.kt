@@ -14,14 +14,12 @@ class CiePackage : ReactPackage {
         return ArrayList()
     }
 
-
     override fun createNativeModules(reactApplicationContext: ReactApplicationContext): List<NativeModule> {
         val modules = ArrayList<NativeModule>()
 
         modules.add(CieModule(reactApplicationContext))
         return modules
     }
-
 
     override fun createViewManagers(reactApplicationContext: ReactApplicationContext): List<ViewManager<*, *>> {
         return emptyList()
