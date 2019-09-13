@@ -3,8 +3,9 @@ package it.ipzs.cieidsdk.sampleapp
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
 import android.util.Log
+import android.view.View
+import androidx.appcompat.app.AppCompatActivity
 import it.ipzs.cieidsdk.common.Callback
 import it.ipzs.cieidsdk.common.CieIDSdk
 import it.ipzs.cieidsdk.common.Event
@@ -17,12 +18,12 @@ class MainActivity : AppCompatActivity(), Callback {
     }
 
     override fun onEvent(event: Event) {
-        Log.d("onEvent",event.toString())
+        Log.d("onEvent", event.toString())
         text.text = "EVENT : $event"
     }
 
     override fun onError(e: Throwable) {
-        Log.d("onError",e.localizedMessage)
+        Log.d("onError", e.localizedMessage)
         text.text = "ERROR : $e.localizedMessage"
     }
 
@@ -37,9 +38,12 @@ class MainActivity : AppCompatActivity(), Callback {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         setContentView(R.layout.activity_main)
+        checkNfcAndStart()
 
+    }
+
+    private fun startSDK() {
         val url = intent.getStringExtra(KEY_URL)
 
         //configurazione cieidsdk
@@ -52,17 +56,30 @@ class MainActivity : AppCompatActivity(), Callback {
         CieIDSdk.enableLog = true
     }
 
-    override fun onResume() {
-        super.onResume()
-        //faccio partire l'ascolto dell'nfc
-        CieIDSdk.startNFCListening(this)
-
-    }
-
     override fun onPause() {
         super.onPause()
         //stop l'ascolto dell'nfc
         CieIDSdk.stopNFCListening(this)
+    }
+
+    fun checkNfcAndStart(){
+        text.text = "";
+        if (!CieIDSdk.hasFeatureNFC(this)) {
+            text.text = "Your device has not NFC"
+            return
+        }
+        if (!CieIDSdk.isNFCEnabled(this)) {
+            text.text = "Your NFC is not enabled"
+            return
+        }
+        text.text = "Starting SDK"
+        startSDK();
+        text.text = "NFC is listening"
+        CieIDSdk.startNFCListening(this)
+    }
+
+    fun refreshClick(v : View) {
+        checkNfcAndStart()
     }
 
 
