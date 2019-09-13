@@ -1,22 +1,17 @@
 
 package it.ipzs.cieidsdk.native_bridge
 
-import android.content.Context
 import com.facebook.react.bridge.*
 import it.ipzs.cieidsdk.common.Callback
 import it.ipzs.cieidsdk.common.CieIDSdk
 import it.ipzs.cieidsdk.common.Event
-import com.facebook.react.modules.core.DeviceEventManagerModule
 import com.facebook.react.modules.core.RCTNativeAppEventEmitter
 import com.facebook.react.bridge.Arguments.createMap
-import com.facebook.react.bridge.WritableMap
 
 
 class CieModule(reactContext: ReactApplicationContext) : ReactContextBaseJavaModule(reactContext), Callback {
 
 
-    private var reactContext: ReactApplicationContext = reactContext
-    private var context: Context = reactContext
     private var eventCallback: com.facebook.react.bridge.Callback? = null
 
 
