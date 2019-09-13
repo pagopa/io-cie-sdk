@@ -166,9 +166,7 @@ object CieIDSdk : NfcAdapter.ReaderCallback {
                 is PinNotValidException -> callback?.onEvent(Event(Event.EventValue.ON_PIN_ERROR, throwable.tentativi))
                 is BlockedPinException -> callback?.onEvent(Event(Event.EventValue.ON_CARD_PIN_LOCKED))
                 is NoCieException -> callback?.onEvent(Event(Event.EventValue.ON_TAG_DISCOVERED_NOT_CIE))
-                is TagLostException -> {
-                    callback?.onEvent(Event(Event.EventValue.ON_TAG_LOST))
-                }
+                is TagLostException -> callback?.onEvent(Event(Event.EventValue.ON_TAG_LOST))
                 else -> callback?.onError(throwable)
             }
         }
