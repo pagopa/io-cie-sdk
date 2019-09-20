@@ -70,22 +70,29 @@ class CieManager {
     });
   };
 
+  /**
+   * Return true if the nfc is enabled, on the device in Settings screen
+   * is possible enable or disable it.
+   */
   isNFCEnabled = () => {
     if (Platform.OS === "ios") {
       return Promise.reject("not implemented");
     }
-    return new Promise((resolve, reject) => {
+    return new Promise((resolve, _) => {
       NativeCie.isNFCEnabled((result) => {
           resolve(result);
       });
     });
   };
 
+  /**
+   * Check if the hardware module nfc is installed (only for Android devices)
+   */
   hasNFCFeature = () => {
     if (Platform.OS === "ios") {
       return Promise.reject("not implemented");
     }
-    return new Promise((resolve, reject) => {
+    return new Promise((resolve, _) => {
       NativeCie.hasNFCFeature((result) => {
           resolve(result);
       });
