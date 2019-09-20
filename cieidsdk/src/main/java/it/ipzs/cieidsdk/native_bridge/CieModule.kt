@@ -70,8 +70,12 @@ class CieModule(reactContext: ReactApplicationContext) : ReactContextBaseJavaMod
 
     @ReactMethod
     fun startListeningNFC(callback: com.facebook.react.bridge.Callback) {
-        CieIDSdk.startNFCListening(getCurrentActivity()!!)
-        callback.invoke(null,null)
+        try {
+            CieIDSdk.startNFCListening(getCurrentActivity()!!)
+            callback.invoke(null,null)
+        } catch (e: RuntimeException) {
+            callback.invoke(e.message,null)
+        }
     }
 
     @ReactMethod
