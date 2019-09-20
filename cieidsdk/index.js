@@ -75,12 +75,8 @@ class CieManager {
       return Promise.reject("not implemented");
     }
     return new Promise((resolve, reject) => {
-      NativeCie.isNFCEnabled((err, result) => {
-        if (err) {
-          reject(err);
-        } else {
+      NativeCie.isNFCEnabled((result) => {
           resolve(result);
-        }
       });
     });
   };
@@ -90,12 +86,8 @@ class CieManager {
       return Promise.reject("not implemented");
     }
     return new Promise((resolve, reject) => {
-      NativeCie.hasNFCFeature((err, result) => {
-        if (err) {
-          reject(err);
-        } else {
+      NativeCie.hasNFCFeature((result) => {
           resolve(result);
-        }
       });
     });
   };
