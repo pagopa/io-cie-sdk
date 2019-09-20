@@ -78,7 +78,7 @@ class CieManager {
     if (Platform.OS === "ios") {
       return Promise.reject("not implemented");
     }
-    return new Promise((resolve, _) => {
+    return new Promise(resolve => {
       NativeCie.isNFCEnabled((result) => {
           resolve(result);
       });
@@ -92,7 +92,7 @@ class CieManager {
     if (Platform.OS === "ios") {
       return Promise.reject("not implemented");
     }
-    return new Promise((resolve, _) => {
+    return new Promise(resolve => {
       NativeCie.hasNFCFeature((result) => {
           resolve(result);
       });
