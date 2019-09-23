@@ -85,5 +85,10 @@ class CieModule(reactContext: ReactApplicationContext) : ReactContextBaseJavaMod
         this.eventCallback = callback
     }
 
+    @ReactMethod
+    fun enableNFC() {
+        CieIDSdk.enableNFC(getCurrentActivity()!!)
+    }
+
 
 }

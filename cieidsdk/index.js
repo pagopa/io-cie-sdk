@@ -99,6 +99,16 @@ class CieManager {
       });
     });
   };
+
+  /**
+   * Function to open OS Settings screen on Android device
+   *
+   */
+   enableNFC = () => {
+     if (Platform.OS === "android") {
+       NativeCie.enableNFC()
+     }
+   }
 }
 
 export default new CieManager();
