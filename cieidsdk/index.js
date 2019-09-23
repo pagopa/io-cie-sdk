@@ -104,9 +104,9 @@ class CieManager {
    * Function to open OS Settings screen on Android device
    *
    */
-   enableNFC = () => {
+   openNFCSettings = () => {
      if (Platform.OS === "android") {
-       NativeCie.enableNFC()
+       NativeCie.openNFCSettings()
      }
    }
 }
