@@ -93,7 +93,7 @@ class CieModule(reactContext: ReactApplicationContext) : ReactContextBaseJavaMod
     }
 
     @ReactMethod
-    fun setEventListner(callback: com.facebook.react.bridge.Callback) {
+    fun onEvent(callback: com.facebook.react.bridge.Callback) {
         this.eventCallback = callback
     }
 
