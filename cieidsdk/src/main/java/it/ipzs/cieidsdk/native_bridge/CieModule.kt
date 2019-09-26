@@ -12,9 +12,6 @@ import com.facebook.react.bridge.Arguments.createMap
 class CieModule(reactContext: ReactApplicationContext) : ReactContextBaseJavaModule(reactContext), Callback {
 
 
-    private var eventCallback: com.facebook.react.bridge.Callback? = null
-
-
     override fun onSuccess(url: String) {
         this.sendSuccess(url)
     }
@@ -110,11 +107,6 @@ class CieModule(reactContext: ReactApplicationContext) : ReactContextBaseJavaMod
         } catch (e: RuntimeException) {
             callback.invoke(e.message,null)
         }
-    }
-
-    @ReactMethod
-    fun setEventListener(callback: com.facebook.react.bridge.Callback) {
-        this.eventCallback = callback
     }
 
 }

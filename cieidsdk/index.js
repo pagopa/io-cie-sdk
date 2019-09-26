@@ -14,9 +14,15 @@ class CieManager {
    * private
    */
   _registerEventEmitter = () => {
-    NativeCieEmitter.addListener("event", e => {
+    NativeCieEmitter.addListener("onEvent", e => {
       this._eventHandlers.forEach(h => h(e));
     });
+    NativeCieEmitter.addListener("onSuccess", e => {
+          this._eventHandlers.forEach(h => h(e));
+        });
+    NativeCieEmitter.addListener("onError", e => {
+          this._eventHandlers.forEach(h => h(e));
+        });
   };
 
   setEventListener = listner => {
