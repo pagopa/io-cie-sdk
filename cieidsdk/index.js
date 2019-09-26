@@ -26,6 +26,20 @@ class CieManager {
     this._eventHandlers = [...this._eventHandlers, listner];
   };
 
+  setErrorListener = listner => {
+    if (this._eventHandlers.indexOf(listner) >= 0) {
+      return;
+    }
+    this._eventHandlers = [...this._eventHandlers, listner];
+   };
+
+  setSuccessListener = listner => {
+     if (this._eventHandlers.indexOf(listner) >= 0) {
+       return;
+     }
+     this._eventHandlers = [...this._eventHandlers, listner];
+   };
+
   setPin = pin => {
     NativeCie.setPin(pin);
   };

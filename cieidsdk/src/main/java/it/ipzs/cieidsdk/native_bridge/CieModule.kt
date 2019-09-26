@@ -38,7 +38,7 @@ class CieModule(reactContext: ReactApplicationContext) : ReactContextBaseJavaMod
         writableMap.putString("description", eventName)
         reactApplicationContext
             .getJSModule(RCTNativeAppEventEmitter::class.java)
-            .emit("event", writableMap)
+            .emit("onEvent", writableMap)
     }
 
     private fun sendError(
@@ -48,7 +48,7 @@ class CieModule(reactContext: ReactApplicationContext) : ReactContextBaseJavaMod
         writableMap.putString("description", error.message)
         reactApplicationContext
             .getJSModule(RCTNativeAppEventEmitter::class.java)
-            .emit("error", writableMap)
+            .emit("onError", writableMap)
     }
 
     private fun sendSuccess(
@@ -58,7 +58,7 @@ class CieModule(reactContext: ReactApplicationContext) : ReactContextBaseJavaMod
         writableMap.putString("description", url)
         reactApplicationContext
             .getJSModule(RCTNativeAppEventEmitter::class.java)
-            .emit("success", writableMap)
+            .emit("onSuccess", writableMap)
     }
 
 
@@ -116,6 +116,5 @@ class CieModule(reactContext: ReactApplicationContext) : ReactContextBaseJavaMod
     fun setEventListener(callback: com.facebook.react.bridge.Callback) {
         this.eventCallback = callback
     }
-
 
 }

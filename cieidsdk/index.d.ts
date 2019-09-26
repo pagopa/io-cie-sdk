@@ -10,7 +10,9 @@ declare module "react-native-cie" {
     isNFCEnabled(): Promise<boolean>;
     hasNFCFeature(): Promise<boolean>;
     setPin(pin: string): void;
-    setEventListener(callback: (event: EventValue) => void): void;
+    setEventListener(callback: (eventCallback: EventValue) => void): void;
+    setErrorListener(callback: (eventCallback: any) => void): void;
+    setSuccessListener(callback: (eventCallback: any) => void): void;
     setAuthenticationUrl(url: string): void;
     start(): Promise<never>;
     startListeningNFC(): Promise<never>;
