@@ -6,7 +6,9 @@ const NativeCieEmitter = new NativeEventEmitter(NativeCie);
 
 class CieManager {
   constructor() {
-    this._eventHandlers = [];
+    this._eventHandlerSuccess=[];
+    this._eventHandlerError=[];
+    this._eventHandlerEvent=[];
     this._registerEventEmitter();
   }
 
@@ -15,35 +17,35 @@ class CieManager {
    */
   _registerEventEmitter = () => {
     NativeCieEmitter.addListener("onEvent", e => {
-      this._eventHandlers.forEach(h => h(e));
+      this._eventHandlerEvent.forEach(h => h(e));
     });
     NativeCieEmitter.addListener("onSuccess", e => {
-          this._eventHandlers.forEach(h => h(e));
-        });
+          this._eventHandlerSuccess.forEach(h => h(e));
+    });
     NativeCieEmitter.addListener("onError", e => {
-          this._eventHandlers.forEach(h => h(e));
-        });
+          this._eventHandlerError.forEach(h => h(e));
+    });
   };
 
   setEventListener = listner => {
-    if (this._eventHandlers.indexOf(listner) >= 0) {
+    if (this._eventHandlerEvent.indexOf(listner) >= 0) {
       return;
     }
-    this._eventHandlers = [...this._eventHandlers, listner];
+    this._eventHandlerEvent = [...this._eventHandlerEvent, listner];
   };
 
   setErrorListener = listner => {
-    if (this._eventHandlers.indexOf(listner) >= 0) {
+    if (this._eventHandlerError.indexOf(listner) >= 0) {
       return;
     }
-    this._eventHandlers = [...this._eventHandlers, listner];
+    this._eventHandlerError = [...this._eventHandlerError, listner];
    };
 
   setSuccessListener = listner => {
-     if (this._eventHandlers.indexOf(listner) >= 0) {
-       return;
-     }
-     this._eventHandlers = [...this._eventHandlers, listner];
+    if (this._eventHandlerSuccess.indexOf(listner) >= 0) {
+      return;
+    }
+     this._eventHandlerSuccess = [...this._eventHandlerSuccess, listner];
    };
 
   setPin = pin => {
