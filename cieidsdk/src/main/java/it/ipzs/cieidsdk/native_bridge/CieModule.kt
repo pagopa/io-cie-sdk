@@ -87,7 +87,7 @@ class CieModule(reactContext: ReactApplicationContext) : ReactContextBaseJavaMod
 
     @ReactMethod
     fun openNFCSettings() {
-        CieIDSdk.enableNFC(getCurrentActivity()!!)
+        CieIDSdk.openNFCSettings(getCurrentActivity()!!)
     }
 
 }
