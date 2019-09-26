@@ -19,7 +19,7 @@ class CieManager {
     });
   };
 
-  onEvent = listner => {
+  setEventListener = listner => {
     if (this._eventHandlers.indexOf(listner) >= 0) {
       return;
     }

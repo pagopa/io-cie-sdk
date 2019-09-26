@@ -16,15 +16,15 @@ class CieModule(reactContext: ReactApplicationContext) : ReactContextBaseJavaMod
 
 
     override fun onSuccess(url: String) {
-        this.sendEvent("SUCCESS ->${url}")
+        this.sendSuccess(url)
     }
 
     override fun onError(e: Throwable) {
-        this.sendEvent("ERROR ->${e.message}")
+        this.sendError(e)
     }
 
     override fun onEvent(event: Event) {
-        this.sendEvent("EVENT ->${event}")
+        this.sendEvent(event.toString())
     }
 
     override fun getName(): String {
@@ -39,6 +39,26 @@ class CieModule(reactContext: ReactApplicationContext) : ReactContextBaseJavaMod
         reactApplicationContext
             .getJSModule(RCTNativeAppEventEmitter::class.java)
             .emit("event", writableMap)
+    }
+
+    private fun sendError(
+        error: Throwable
+    ) {
+        val writableMap = createMap()
+        writableMap.putString("description", error.message)
+        reactApplicationContext
+            .getJSModule(RCTNativeAppEventEmitter::class.java)
+            .emit("error", writableMap)
+    }
+
+    private fun sendSuccess(
+        url: String
+    ) {
+        val writableMap = createMap()
+        writableMap.putString("description", url)
+        reactApplicationContext
+            .getJSModule(RCTNativeAppEventEmitter::class.java)
+            .emit("success", writableMap)
     }
 
 
@@ -93,7 +113,7 @@ class CieModule(reactContext: ReactApplicationContext) : ReactContextBaseJavaMod
     }
 
     @ReactMethod
-    fun onEvent(callback: com.facebook.react.bridge.Callback) {
+    fun setEventListener(callback: com.facebook.react.bridge.Callback) {
         this.eventCallback = callback
     }
 
