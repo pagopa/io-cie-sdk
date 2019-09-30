@@ -13,9 +13,9 @@ declare module "react-native-cie" {
     setPin(pin: string): void;
     // The next 3 methods must be implemented to listen the messages
     // from the sdk, errors, and url to access
-    setEventListener(callback: (eventCallback: EventValue) => void): void;
-    setErrorListener(callback: (eventCallback: any) => void): void;
-    setSuccessListener(callback: (eventCallback: any) => void): void;
+    onEvent(callback: (event: EventValue) => void): void;
+    onError(callback: (error: Error) => void): void;
+    onSuccess(callback: (url: string) => void): void;
     setAuthenticationUrl(url: string): void;
     start(): Promise<never>;
     startListeningNFC(): Promise<never>;

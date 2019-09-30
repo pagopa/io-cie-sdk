@@ -41,7 +41,7 @@ class CieModule(reactContext: ReactApplicationContext) : ReactContextBaseJavaMod
         eventName: Event.EventValue
     ) {
         val writableMap = createMap()
-        writableMap.putString("description", eventName.toString())
+        writableMap.putString("event", eventName.toString())
         reactApplicationContext
             .getJSModule(RCTNativeAppEventEmitter::class.java)
             .emit("onEvent", writableMap)
@@ -51,7 +51,7 @@ class CieModule(reactContext: ReactApplicationContext) : ReactContextBaseJavaMod
         error: Throwable
     ) {
         val writableMap = createMap()
-        writableMap.putString("description", error.message)
+        writableMap.putString("error", error.message)
         reactApplicationContext
             .getJSModule(RCTNativeAppEventEmitter::class.java)
             .emit("onError", writableMap)
@@ -61,7 +61,7 @@ class CieModule(reactContext: ReactApplicationContext) : ReactContextBaseJavaMod
         url: String
     ) {
         val writableMap = createMap()
-        writableMap.putString("description", url)
+        writableMap.putString("url", url)
         reactApplicationContext
             .getJSModule(RCTNativeAppEventEmitter::class.java)
             .emit("onSuccess", writableMap)
