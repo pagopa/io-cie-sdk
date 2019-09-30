@@ -23,7 +23,7 @@ class CieManager {
           this._eventSuccessHandler.forEach(h => h(e));
     });
     NativeCieEmitter.addListener("onError", e => {
-          this._eventErrorHandler.forEach(h => h(new Error(e)));
+          this._eventErrorHandler.forEach(h => h(e));
     });
   };
 

@@ -90,7 +90,7 @@ class Event {
 interface Callback {
 
     fun onSuccess(url: String)
-    fun onError(e: Throwable)
+    fun onError(errorMessage: Throwable)
     fun onEvent(event: Event.EventValue)
 }
 

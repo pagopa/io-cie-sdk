@@ -23,7 +23,7 @@ class CieModule(reactContext: ReactApplicationContext) : ReactContextBaseJavaMod
      * Callback method that returns any errors during the decript phase
      */
     override fun onError(e: Throwable) {
-        this.sendError(e)
+        e.message?.let { this.sendError(it) }
     }
 
     /**
@@ -48,10 +48,10 @@ class CieModule(reactContext: ReactApplicationContext) : ReactContextBaseJavaMod
     }
 
     private fun sendError(
-        error: Throwable
+        error: String
     ) {
         val writableMap = createMap()
-        writableMap.putString("error", error.message)
+        writableMap.putString("error", error)
         reactApplicationContext
             .getJSModule(RCTNativeAppEventEmitter::class.java)
             .emit("onError", writableMap)
