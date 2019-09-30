@@ -38,33 +38,27 @@ class CieModule(reactContext: ReactApplicationContext) : ReactContextBaseJavaMod
     }
 
     private fun sendEvent(
-        eventName: Event.EventValue
+        event: Event.EventValue
     ) {
-        val writableMap = createMap()
-        writableMap.putString("event", eventName.toString())
         reactApplicationContext
             .getJSModule(RCTNativeAppEventEmitter::class.java)
-            .emit("onEvent", writableMap)
+            .emit("onEvent", event.toString())
     }
 
     private fun sendError(
-        error: String
+        errorMessage: String
     ) {
-        val writableMap = createMap()
-        writableMap.putString("error", error)
         reactApplicationContext
             .getJSModule(RCTNativeAppEventEmitter::class.java)
-            .emit("onError", writableMap)
+            .emit("onError", errorMessage)
     }
 
     private fun sendSuccess(
         url: String
     ) {
-        val writableMap = createMap()
-        writableMap.putString("url", url)
         reactApplicationContext
             .getJSModule(RCTNativeAppEventEmitter::class.java)
-            .emit("onSuccess", writableMap)
+            .emit("onSuccess", url)
     }
 
 
