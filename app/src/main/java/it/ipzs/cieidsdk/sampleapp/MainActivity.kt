@@ -10,20 +10,26 @@ import it.ipzs.cieidsdk.common.CieIDSdk
 import it.ipzs.cieidsdk.common.Event
 import kotlinx.android.synthetic.main.activity_main.*
 
+
 class MainActivity : AppCompatActivity(), Callback {
 
     companion object {
         const val KEY_URL = "KEY_URL"
     }
 
-    override fun onEvent(event: Event) {
+    override fun onEvent(event: Event.EventValue) {
         Log.d("onEvent",event.toString())
-        text.text = "EVENT : $event"
+        runOnUiThread {
+            text.text = "EVENT : $event"
+        }
+
     }
 
     override fun onError(e: Throwable) {
         Log.d("onError",e.localizedMessage)
-        text.text = "ERROR : $e.localizedMessage"
+        runOnUiThread {
+            text.text = "ERROR : $e.localizedMessage"
+        }
     }
 
     override fun onSuccess(url: String) {
