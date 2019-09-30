@@ -91,7 +91,7 @@ interface Callback {
 
     fun onSuccess(url: String)
     fun onError(e: Throwable)
-    fun onEvent(event: Event)
+    fun onEvent(event: Event.EventValue)
 }
 
 object CieIDSdk : NfcAdapter.ReaderCallback {
@@ -129,7 +129,7 @@ object CieIDSdk : NfcAdapter.ReaderCallback {
                         callback?.onSuccess(url)
 
                     } else {
-                        callback?.onEvent(Event(Event.EventError.AUTHENTICATION_ERROR))
+                        callback?.onEvent(Event.EventError.AUTHENTICATION_ERROR)
                     }
 
                 }
@@ -140,7 +140,7 @@ object CieIDSdk : NfcAdapter.ReaderCallback {
                     when (e) {
                         is SocketTimeoutException , is UnknownHostException -> {
                             CieIDSdkLogger.log("SocketTimeoutException or UnknownHostException")
-                            callback?.onEvent(Event(Event.EventError.ON_NO_INTERNET_CONNECTION))
+                            callback?.onEvent(Event.EventError.ON_NO_INTERNET_CONNECTION)
 
                         }
                         is SSLProtocolException -> {
@@ -148,8 +148,8 @@ object CieIDSdk : NfcAdapter.ReaderCallback {
                             CieIDSdkLogger.log("SSLProtocolException")
                             e.message?.let {
                                 when {
-                                    it.contains(CERTIFICATE_EXPIRED) -> callback?.onEvent(Event(Event.EventCertificate.CERTIFICATE_EXPIRED))
-                                    it.contains(CERTIFICATE_REVOKED) -> callback?.onEvent(Event(Event.EventCertificate.CERTIFICATE_REVOKED))
+                                    it.contains(CERTIFICATE_EXPIRED) -> callback?.onEvent(Event.EventCertificate.CERTIFICATE_EXPIRED)
+                                    it.contains(CERTIFICATE_REVOKED) -> callback?.onEvent(Event.EventCertificate.CERTIFICATE_REVOKED)
                                     else -> callback?.onError(e)
                                 }
                             }
@@ -164,7 +164,7 @@ object CieIDSdk : NfcAdapter.ReaderCallback {
 
     override fun onTagDiscovered(tag: Tag?) {
         try {
-            callback?.onEvent(Event(Event.EventTag.ON_TAG_DISCOVERED))
+            callback?.onEvent(Event.EventTag.ON_TAG_DISCOVERED)
             val isoDep = IsoDep.get(tag)
             isoDep.timeout = isoDepTimeout
             isoDep.connect()
@@ -178,10 +178,10 @@ object CieIDSdk : NfcAdapter.ReaderCallback {
         } catch (throwable: Throwable) {
             CieIDSdkLogger.log(throwable.toString())
             when (throwable) {
-                is PinNotValidException -> callback?.onEvent(Event(Event.EventCard.ON_PIN_ERROR, throwable.tentativi))
-                is BlockedPinException -> callback?.onEvent(Event(Event.EventCard.ON_CARD_PIN_LOCKED))
-                is NoCieException -> callback?.onEvent(Event(Event.EventTag.ON_TAG_DISCOVERED_NOT_CIE))
-                is TagLostException -> callback?.onEvent(Event(Event.EventTag.ON_TAG_LOST))
+                is PinNotValidException -> callback?.onEvent(Event.EventCard.ON_PIN_ERROR)
+                is BlockedPinException -> callback?.onEvent(Event.EventCard.ON_CARD_PIN_LOCKED)
+                is NoCieException -> callback?.onEvent(Event.EventTag.ON_TAG_DISCOVERED_NOT_CIE)
+                is TagLostException -> callback?.onEvent(Event.EventTag.ON_TAG_LOST)
                 else -> callback?.onError(throwable)
             }
         }
