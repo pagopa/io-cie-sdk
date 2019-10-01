@@ -105,9 +105,18 @@ class CieManager {
    *
    */
    openNFCSettings = () => {
-     if (Platform.OS === "android") {
-       NativeCie.openNFCSettings()
-     }
+        if (Platform.OS === 'ios') {
+         return Promise.reject('not implemented');
+       }
+       return new Promise((resolve, reject) => {
+         NativeCie.openNFCSettings((err, result) => {
+           if (err) {
+             reject(err);
+           } else {
+             resolve(result);
+           }
+         })
+       })
    }
 }
 
