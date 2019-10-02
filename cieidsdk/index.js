@@ -71,7 +71,7 @@ class CieManager {
         if (err) {
           reject(err);
         } else {
-          resolve();
+          resolve(true);
         }
       });
     });
@@ -83,7 +83,7 @@ class CieManager {
         if (err) {
           reject(err);
         } else {
-          resolve();
+          resolve(true);
         }
       });
     });
@@ -95,7 +95,7 @@ class CieManager {
         if (err) {
           reject(err);
         } else {
-          resolve();
+          resolve(true);
         }
       });
     });

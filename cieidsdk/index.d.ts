@@ -17,9 +17,9 @@ declare module "react-native-cie" {
     onError(callback: (errorMessage: string) => void): void;
     onSuccess(callback: (url: string) => void): void;
     setAuthenticationUrl(url: string): void;
-    start(): Promise<never>;
-    startListeningNFC(): Promise<never>;
-    stopListeningNFC(): Promise<never>;
+    start(): Promise<boolean>;
+    startListeningNFC(): Promise<boolean>;
+    stopListeningNFC(): Promise<boolean>;
     // Call this void to remove all listeners when the authentication phase is finished
     removeAllListeners(): void;
   }
