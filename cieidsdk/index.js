@@ -6,9 +6,9 @@ const NativeCieEmitter = new NativeEventEmitter(NativeCie);
 
 class CieManager {
   constructor() {
-    this._eventSuccessHandler=[];
-    this._eventErrorHandler=[];
-    this._eventHandler=[];
+    this._eventSuccessHandlers=[];
+    this._eventErrorHandlers=[];
+    this._eventHandlers=[];
     this._registerEventEmitter();
     this._subSuccess;
     this._subError;
@@ -20,35 +20,35 @@ class CieManager {
    */
   _registerEventEmitter = () => {
       this._subEvent =NativeCieEmitter.addListener("onEvent", e => {
-          this._eventHandler.forEach(h => h(e));
+          this._eventHandlers.forEach(h => h(e));
     });
       this._subSuccess = NativeCieEmitter.addListener("onSuccess", e => {
-          this._eventSuccessHandler.forEach(h => h(e));
+          this._eventSuccessHandlers.forEach(h => h(e));
     });
       this._subError = NativeCieEmitter.addListener("onError", e => {
-          this._eventErrorHandler.forEach(h => h(e));
+          this._eventErrorHandlers.forEach(h => h(e));
     });
   };
 
   onEvent = listner => {
-    if (this._eventHandler.indexOf(listner) >= 0) {
+    if (this._eventHandlers.indexOf(listner) >= 0) {
       return;
     }
-    this._eventHandler = [...this._eventHandler, listner];
+    this._eventHandlers = [...this._eventHandlers, listner];
   };
 
   onError = listner => {
-    if (this._eventErrorHandler.indexOf(listner) >= 0) {
+    if (this._eventErrorHandlers.indexOf(listner) >= 0) {
       return;
     }
-    this._eventErrorHandler = [...this._eventErrorHandler, listner];
+    this._eventErrorHandlers = [...this._eventErrorHandlers, listner];
   };
 
   onSuccess = listner => {
-    if (this._eventSuccessHandler.indexOf(listner) >= 0) {
+    if (this._eventSuccessHandlers.indexOf(listner) >= 0) {
       return;
     }
-     this._eventSuccessHandler = [...this._eventSuccessHandler, listner];
+     this._eventSuccessHandlers = [...this._eventSuccessHandlers, listner];
   };
 
   removeAllListeners = () => {
@@ -71,7 +71,7 @@ class CieManager {
         if (err) {
           reject(err);
         } else {
-          resolve(true);
+          resolve();
         }
       });
     });
@@ -83,7 +83,7 @@ class CieManager {
         if (err) {
           reject(err);
         } else {
-          resolve(true);
+          resolve();
         }
       });
     });
@@ -95,7 +95,7 @@ class CieManager {
         if (err) {
           reject(err);
         } else {
-          resolve(true);
+          resolve();
         }
       });
     });

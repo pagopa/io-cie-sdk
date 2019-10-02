@@ -11,15 +11,17 @@ declare module "react-native-cie" {
     isNFCEnabled(): Promise<boolean>;
     hasNFCFeature(): Promise<boolean>;
     setPin(pin: string): void;
-    // The next 3 methods must be implemented to listen the messages
-    // from the sdk, errors, and url to access
+    // Set a listener on all possible CIEEEvent (see above)
+    // during reading and decoding of the nfc tag
     onEvent(callback: (event: CIEEvent) => void): void;
+    // Set a listener if an error should occur so as to handle it
     onError(callback: (errorMessage: string) => void): void;
+    // Set a listener to know when the decoding process is finished and we have an access url
     onSuccess(callback: (url: string) => void): void;
     setAuthenticationUrl(url: string): void;
-    start(): Promise<boolean>;
-    startListeningNFC(): Promise<boolean>;
-    stopListeningNFC(): Promise<boolean>;
+    start(): Promise<void>;
+    startListeningNFC(): Promise<void>;
+    stopListeningNFC(): Promise<void>;
     // Call this void to remove all listeners when the authentication phase is finished
     removeAllListeners(): void;
   }
