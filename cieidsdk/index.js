@@ -109,11 +109,11 @@ class CieManager {
          return Promise.reject('not implemented');
        }
        return new Promise((resolve, reject) => {
-         NativeCie.openNFCSettings((err, result) => {
+         NativeCie.openNFCSettings((err, _) => {
            if (err) {
              reject(err);
            } else {
-             resolve(result);
+             resolve();
            }
          })
        })

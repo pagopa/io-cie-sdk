@@ -10,7 +10,7 @@ declare module "react-native-cie" {
     start(): Promise<never>;
     startListeningNFC(): Promise<never>;
     stopListeningNFC(): Promise<never>;
-    openNFCSettings(): void;
+    openNFCSettings(): Promise<void>;
   }
 
   const cieManager: CieManager;
