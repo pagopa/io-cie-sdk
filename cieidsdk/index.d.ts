@@ -20,6 +20,8 @@ declare module "react-native-cie" {
     start(): Promise<never>;
     startListeningNFC(): Promise<never>;
     stopListeningNFC(): Promise<never>;
+    // Call this void to remove all listeners when the authentication phase is finished
+    removeAllListeners(): void;
   }
 
   const cieManager: CieManager;
