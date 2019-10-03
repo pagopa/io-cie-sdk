@@ -98,7 +98,7 @@ class CieModule(reactContext: ReactApplicationContext) : ReactContextBaseJavaMod
         if (currentActivity == null) {
             callback.invoke("fail to get current activity");
         } else {
-            currentActivity.startActivity(Intent(Settings.ACTION_NFC_SETTINGS))
+            CieIDSdk.openNFCSettings(currentActivity);
             callback.invoke();
         }
     }

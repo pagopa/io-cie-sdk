@@ -101,7 +101,7 @@ class CieManager {
   };
 
   /**
-   * Function to open OS Settings screen on Android device
+   * It opens OS Settings on NFC section
    *
    */
    openNFCSettings = () => {
@@ -109,7 +109,7 @@ class CieManager {
          return Promise.reject('not implemented');
        }
        return new Promise((resolve, reject) => {
-         NativeCie.openNFCSettings((err, _) => {
+         NativeCie.openNFCSettings((err) => {
            if (err) {
              reject(err);
            } else {
