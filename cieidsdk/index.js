@@ -10,23 +10,20 @@ class CieManager {
     this._eventErrorHandlers=[];
     this._eventHandlers=[];
     this._registerEventEmitter();
-    this._subSuccess;
-    this._subError;
-    this._subEvent;
   }
 
   /**
    * private
    */
   _registerEventEmitter = () => {
-      this._subEvent =NativeCieEmitter.addListener("onEvent", e => {
+      NativeCieEmitter.addListener("onEvent", e => {
           this._eventHandlers.forEach(h => h(e));
     });
-      this._subSuccess = NativeCieEmitter.addListener("onSuccess", e => {
+      NativeCieEmitter.addListener("onSuccess", e => {
           this._eventSuccessHandlers.forEach(h => h(e));
     });
-      this._subError = NativeCieEmitter.addListener("onError", e => {
-          this._eventErrorHandlers.forEach(h => h(e));
+      NativeCieEmitter.addListener("onError", e => {
+          this._eventErrorHandlers.forEach(h => h(new Error(e)));
     });
   };
 
@@ -52,9 +49,9 @@ class CieManager {
   };
 
   removeAllListeners = () => {
-    this._subError.remove();
-    this._subEvent.remove();
-    this._subSuccess.remove();
+    this._eventSuccessHandlers=[];
+    this._eventErrorHandlers=[];
+    this._eventHandlers=[];
   }
 
   setPin = pin => {
