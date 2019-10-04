@@ -18,19 +18,23 @@ import androidx.appcompat.app.AppCompatActivity
 
 class MainActivity : AppCompatActivity(), Callback {
 
-    override fun onEvent(event: Event.EventValue) {
+    override fun onEvent(event: Event) {
         Log.d("onEvent",event.toString())
         runOnUiThread {
-            text.text = "EVENT : $event"
+            if(event.attempts==0){
+                text.text = "EVENT : $event"
+            }else {
+                text.text = "EVENT : $event\nTentativi : ${event.attempts}"
+            }
         }
 
 
     }
 
     override fun onError(e: Throwable) {
-        Log.d("onError",e.toString())
+        Log.d("onError",e.localizedMessage)
         runOnUiThread {
-            text.text = "ERROR : ${e.toString()}"
+            text.text = "ERROR : $e.localizedMessage"
         }
     }
 

@@ -6,9 +6,9 @@ const NativeCieEmitter = new NativeEventEmitter(NativeCie);
 
 class CieManager {
   constructor() {
-    this._eventSuccessHandlers=[];
-    this._eventErrorHandlers=[];
-    this._eventHandlers=[];
+    this._eventSuccessHandlers = [];
+    this._eventErrorHandlers = [];
+    this._eventHandlers = [];
     this._registerEventEmitter();
   }
 
@@ -16,14 +16,16 @@ class CieManager {
    * private
    */
   _registerEventEmitter = () => {
-      NativeCieEmitter.addListener("onEvent", e => {
-          this._eventHandlers.forEach(h => h(e));
+    NativeCieEmitter.addListener("onEvent", e => {
+      this._eventHandlers.forEach(h =>
+        h({ event: e.event, attempts: e.attempts })
+      );
     });
-      NativeCieEmitter.addListener("onSuccess", e => {
-          this._eventSuccessHandlers.forEach(h => h(e));
+    NativeCieEmitter.addListener("onSuccess", e => {
+      this._eventSuccessHandlers.forEach(h => h(e.event));
     });
-      NativeCieEmitter.addListener("onError", e => {
-          this._eventErrorHandlers.forEach(h => h(new Error(e)));
+    NativeCieEmitter.addListener("onError", e => {
+      this._eventErrorHandlers.forEach(h => h(new Error(e.event)));
     });
   };
 
@@ -45,14 +47,14 @@ class CieManager {
     if (this._eventSuccessHandlers.indexOf(listner) >= 0) {
       return;
     }
-     this._eventSuccessHandlers = [...this._eventSuccessHandlers, listner];
+    this._eventSuccessHandlers = [...this._eventSuccessHandlers, listner];
   };
 
   removeAllListeners = () => {
-    this._eventSuccessHandlers=[];
-    this._eventErrorHandlers=[];
-    this._eventHandlers=[];
-  }
+    this._eventSuccessHandlers.length = 0;
+    this._eventErrorHandlers.length = 0;
+    this._eventHandlers.length = 0;
+  };
 
   setPin = pin => {
     NativeCie.setPin(pin);
@@ -107,8 +109,8 @@ class CieManager {
       return Promise.reject("not implemented");
     }
     return new Promise(resolve => {
-      NativeCie.isNFCEnabled((result) => {
-          resolve(result);
+      NativeCie.isNFCEnabled(result => {
+        resolve(result);
       });
     });
   };
@@ -121,8 +123,8 @@ class CieManager {
       return Promise.reject("not implemented");
     }
     return new Promise(resolve => {
-      NativeCie.hasNFCFeature((result) => {
-          resolve(result);
+      NativeCie.hasNFCFeature(result => {
+        resolve(result);
       });
     });
   };
