@@ -19,11 +19,11 @@ declare module "react-native-cie" {
     attempts: number;
   };
   interface CieManager {
-    // check if the device had NFC feature
+    // check if the device has NFC feature
     hasNFCFeature(): Promise<boolean>;
     // check if NFC is enabled
     isNFCEnabled(): Promise<boolean>;
-    // register a callback to receive all CIEEvent raised while reading/writing CIE
+    // register a callback to receive all Event raised while reading/writing CIE
     onEvent(callback: (event: Event) => void): void;
     // register a callback to receive errors occured while reading/writing CIE
     onError(callback: (error: Error) => void): void;
