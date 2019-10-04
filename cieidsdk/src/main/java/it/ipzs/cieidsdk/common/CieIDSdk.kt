@@ -18,6 +18,7 @@ import io.reactivex.schedulers.Schedulers
 import it.ipzs.cieidsdk.exceptions.BlockedPinException
 import it.ipzs.cieidsdk.exceptions.NoCieException
 import it.ipzs.cieidsdk.exceptions.PinInputNotValidException
+import it.ipzs.cieidsdk.exceptions.PinNotValidException
 import it.ipzs.cieidsdk.network.NetworkClient
 import it.ipzs.cieidsdk.network.service.IdpService
 import it.ipzs.cieidsdk.nfc.Ias
@@ -65,7 +66,8 @@ class Event {
         //error
         AUTHENTICATION_ERROR,
         GENERAL_ERROR,
-        ON_NO_INTERNET_CONNECTION;
+        ON_NO_INTERNET_CONNECTION,
+        PIN_INPUT_ERROR;
         override val nameEvent: String = name
     }
 
@@ -183,7 +185,8 @@ object CieIDSdk : NfcAdapter.ReaderCallback {
         } catch (throwable: Throwable) {
             CieIDSdkLogger.log(throwable.toString())
             when (throwable) {
-                is PinInputNotValidException -> callback?.onEvent(Event.EventCard.ON_PIN_ERROR)
+                is PinNotValidException -> callback?.onEvent(Event.EventCard.ON_PIN_ERROR)
+                is PinInputNotValidException -> callback?.onEvent(Event.EventError.PIN_INPUT_ERROR)
                 is BlockedPinException -> callback?.onEvent(Event.EventCard.ON_CARD_PIN_LOCKED)
                 is NoCieException -> callback?.onEvent(Event.EventTag.ON_TAG_DISCOVERED_NOT_CIE)
                 is TagLostException -> callback?.onEvent(Event.EventTag.ON_TAG_LOST)

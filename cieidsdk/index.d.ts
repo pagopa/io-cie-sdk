@@ -4,7 +4,7 @@ declare module "react-native-cie" {
 
   // All events returned by onEvent callback
   export type CIEEvent = 'ON_TAG_DISCOVERED_NOT_CIE' | 'ON_TAG_DISCOVERED' | 'ON_TAG_LOST' |
-  'ON_CARD_PIN_LOCKED' | 'ON_PIN_ERROR' | 'CERTIFICATE_EXPIRED' | 'CERTIFICATE_REVOKED' |
+  'ON_CARD_PIN_LOCKED' | 'ON_PIN_ERROR'  | 'PIN_INPUT_ERROR' | 'CERTIFICATE_EXPIRED' | 'CERTIFICATE_REVOKED' |
   'AUTHENTICATION_ERROR' | 'ON_NO_INTERNET_CONNECTION';
 
   interface CieManager {
