@@ -19,8 +19,6 @@ class CieModule(reactContext: ReactApplicationContext) : ReactContextBaseJavaMod
      * Callback method that return the access url when the tag nfc is correctly decripted
      */
     override fun onSuccess(url: String) {
-        // reset attempts on success
-        cieInvalidPinAttempts = 0
         this.sendEvent(successChannel, url)
     }
 
@@ -50,7 +48,7 @@ class CieModule(reactContext: ReactApplicationContext) : ReactContextBaseJavaMod
         return writableMap
     }
 
-    private fun sendEvent(channel : String, eventValue : String, attempts : Int = 0)
+    private fun sendEvent(channel : String, eventValue : String)
      {
         reactApplicationContext
             .getJSModule(RCTNativeAppEventEmitter::class.java)
