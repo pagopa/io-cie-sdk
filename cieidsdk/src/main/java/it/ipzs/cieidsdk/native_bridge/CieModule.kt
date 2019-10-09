@@ -62,7 +62,6 @@ class CieModule(reactContext: ReactApplicationContext) : ReactContextBaseJavaMod
         try {
             CieIDSdk.start(getCurrentActivity()!!, this)
             callback.invoke(null, null)
-            cieInvalidPinAttempts = 0;
         } catch (e: RuntimeException) {
             callback.invoke(e.message,null)
         }
