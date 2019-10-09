@@ -7,7 +7,6 @@ import it.ipzs.cieidsdk.common.CieIDSdk
 import it.ipzs.cieidsdk.common.Event
 import com.facebook.react.modules.core.RCTNativeAppEventEmitter
 import com.facebook.react.bridge.Arguments.createMap
-import java.util.*
 
 
 class CieModule(reactContext: ReactApplicationContext) : ReactContextBaseJavaModule(reactContext), Callback {
@@ -16,21 +15,23 @@ class CieModule(reactContext: ReactApplicationContext) : ReactContextBaseJavaMod
     private var cieInvalidPinAttempts : Int = 0
 
     /**
-     * Callback method that return the access url when the tag nfc is correctly decripted
+     * onSuccess is called when the CIE authentication is successfully completed.
+     * @param[url] the form consent url
      */
     override fun onSuccess(url: String) {
         this.sendEvent(successChannel, url)
     }
 
     /**
-     * Callback method that returns any errors during the decript phase
+     * onError is called if some errors occurred during CIE authentication
+     * @param[error] the error occurred
      */
-    override fun onError(e: Throwable) {
-        this.sendEvent(errorChannel, e.message ?: "generic error")
+    override fun onError(error: Throwable) {
+        this.sendEvent(errorChannel, error.message ?: "generic error")
     }
 
     /**
-     * Callback method that returns an enum describing the steps of decryption
+     * onEvent is called if an event occurs
      */
     override fun onEvent(event: Event) {
         cieInvalidPinAttempts = event.attempts;
