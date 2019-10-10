@@ -4,7 +4,7 @@ declare module "react-native-cie" {
   interface CieManager {
     isNFCEnabled(): Promise<boolean>;
     hasNFCFeature(): Promise<boolean>;
-    setPin(pin: string): void;
+    setPin(pin: string): Promise<boolean>;
     setEventListner(callback: (event: any) => void): void;
     setAuthenticationUrl(url: string): void;
     start(): Promise<never>;

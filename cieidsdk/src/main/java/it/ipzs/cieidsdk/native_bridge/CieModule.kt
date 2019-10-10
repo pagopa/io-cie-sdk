@@ -7,6 +7,7 @@ import it.ipzs.cieidsdk.common.CieIDSdk
 import it.ipzs.cieidsdk.common.Event
 import com.facebook.react.modules.core.RCTNativeAppEventEmitter
 import com.facebook.react.bridge.Arguments.createMap
+import java.util.*
 
 
 class CieModule(reactContext: ReactApplicationContext) : ReactContextBaseJavaModule(reactContext), Callback {
@@ -63,8 +64,15 @@ class CieModule(reactContext: ReactApplicationContext) : ReactContextBaseJavaMod
     }
 
     @ReactMethod
-    fun setPin(pin: String) {
-        CieIDSdk.pin = pin
+    fun setPin(pin: String,callback: com.facebook.react.bridge.Callback) {
+        try{
+            CieIDSdk.pin = pin
+            callback.invoke()
+        }
+        catch (e: IllegalFormatException){
+            callback.invoke(e.message)
+        }
+
     }
 
     @ReactMethod
