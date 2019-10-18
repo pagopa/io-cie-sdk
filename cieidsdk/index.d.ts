@@ -19,6 +19,8 @@ declare module "react-native-cie" {
     attempts: number;
   };
   interface CieManager {
+    // check if the OS support CIE autentication
+    hasApiLevelSupport(): Promise<boolean>;
     // check if the device has NFC feature
     hasNFCFeature(): Promise<boolean>;
     // check if NFC is enabled
@@ -30,8 +32,8 @@ declare module "react-native-cie" {
     // register a callback to receive the success event containing the consent form url
     onSuccess(callback: (url: string) => void): void;
     setAuthenticationUrl(url: string): void;
-    // set the CIE pin. It has to be a string consisting of 8 numbers
-    setPin(pin: string): void;
+    // set the CIE pin. It has to be a 8 length string of 8 digits
+    setPin(pin: string): Promise<void>;
     start(): Promise<void>;
     // command CIE SDK to start reading/writing CIE CARD
     startListeningNFC(): Promise<void>;

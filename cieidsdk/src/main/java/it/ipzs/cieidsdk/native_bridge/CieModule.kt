@@ -1,9 +1,5 @@
-
 package it.ipzs.cieidsdk.native_bridge
 
-import android.app.Activity
-import android.content.Intent
-import android.provider.Settings
 import com.facebook.react.bridge.*
 import it.ipzs.cieidsdk.common.Callback
 import it.ipzs.cieidsdk.common.CieIDSdk
@@ -14,10 +10,11 @@ import com.facebook.react.bridge.NativeModule.NativeMethod
 import it.ipzs.cieidsdk.event.Event
 
 
-class CieModule(reactContext: ReactApplicationContext) : ReactContextBaseJavaModule(reactContext), Callback {
+class CieModule(reactContext: ReactApplicationContext) : ReactContextBaseJavaModule(reactContext),
+    Callback {
 
 
-    private var cieInvalidPinAttempts : Int = 0
+    private var cieInvalidPinAttempts: Int = 0
 
     /**
      * onSuccess is called when the CIE authentication is successfully completed.
@@ -47,15 +44,14 @@ class CieModule(reactContext: ReactApplicationContext) : ReactContextBaseJavaMod
         return "NativeCieModule"
     }
 
-    private fun getWritableMap(eventValue: String) : WritableMap{
+    private fun getWritableMap(eventValue: String): WritableMap {
         val writableMap = createMap()
         writableMap.putString("event", eventValue)
         writableMap.putInt("attempts", cieInvalidPinAttempts)
         return writableMap
     }
 
-    private fun sendEvent(channel : String, eventValue : String)
-     {
+    private fun sendEvent(channel: String, eventValue: String) {
         reactApplicationContext
             .getJSModule(RCTNativeAppEventEmitter::class.java)
             .emit(channel, getWritableMap(eventValue))
@@ -63,12 +59,12 @@ class CieModule(reactContext: ReactApplicationContext) : ReactContextBaseJavaMod
 
 
     @ReactMethod
-    fun start(callback: com.facebook.react.bridge.Callback){
+    fun start(callback: com.facebook.react.bridge.Callback) {
         try {
             CieIDSdk.start(getCurrentActivity()!!, this)
             callback.invoke(null, null)
         } catch (e: RuntimeException) {
-            callback.invoke(e.message,null)
+            callback.invoke(e.message, null)
         }
     }
 
@@ -83,8 +79,13 @@ class CieModule(reactContext: ReactApplicationContext) : ReactContextBaseJavaMod
     }
 
     @ReactMethod
-    fun setPin(pin: String) {
-        CieIDSdk.pin = pin
+    fun setPin(pin: String, callback: com.facebook.react.bridge.Callback) {
+        try {
+            CieIDSdk.pin = pin
+            callback.invoke()
+        } catch (e: IllegalArgumentException) {
+            callback.invoke(e.message)
+        }
     }
 
     @ReactMethod
@@ -96,9 +97,9 @@ class CieModule(reactContext: ReactApplicationContext) : ReactContextBaseJavaMod
     fun startListeningNFC(callback: com.facebook.react.bridge.Callback) {
         try {
             CieIDSdk.startNFCListening(getCurrentActivity()!!)
-            callback.invoke(null,null)
+            callback.invoke(null, null)
         } catch (e: RuntimeException) {
-            callback.invoke(e.message,null)
+            callback.invoke(e.message, null)
         }
     }
 
@@ -108,7 +109,7 @@ class CieModule(reactContext: ReactApplicationContext) : ReactContextBaseJavaMod
             CieIDSdk.stopNFCListening(getCurrentActivity()!!)
             callback.invoke(null, null)
         } catch (e: RuntimeException) {
-            callback.invoke(e.message,null)
+            callback.invoke(e.message, null)
         }
     }
 
@@ -128,4 +129,10 @@ class CieModule(reactContext: ReactApplicationContext) : ReactContextBaseJavaMod
             callback.invoke();
         }
     }
+
+    @ReactMethod
+    fun hasApiLevelSupport(callback: com.facebook.react.bridge.Callback) {
+        callback.invoke(CieIDSdk.hasApiLevelSupport())
+    }
+
 }

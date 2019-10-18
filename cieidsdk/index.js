@@ -56,8 +56,20 @@ class CieManager {
     this._eventHandlers.length = 0;
   };
 
+  /**
+   * set the CIE pin. If the format doesn't respect a 8 length string of digits
+   * the promise will be rejected
+   */
   setPin = pin => {
-    NativeCie.setPin(pin);
+    return new Promise((resolve, reject) => {
+      NativeCie.setPin(pin, (err, _) => {
+        if (err) {
+          reject(err);
+        } else {
+          resolve();
+        }
+      });
+    });
   };
 
   setAuthenticationUrl = url => {
@@ -116,6 +128,22 @@ class CieManager {
   };
 
   /**
+    return a Promise will be resolved with true if the current OS supports the authentication. 
+    This method is due because with API level < 23 a security exception is raised
+    read more here - https://github.com/teamdigitale/io-cie-android-sdk/issues/10
+   */
+  hasApiLevelSupport = () => {
+    if (Platform.OS === "ios") {
+      return Promise.reject("not implemented");
+    }
+    return new Promise(resolve => {
+      NativeCie.hasApiLevelSupport(result => {
+        resolve(result);
+      });
+    });
+  };
+
+  /**
    * Check if the hardware module nfc is installed (only for Android devices)
    */
   hasNFCFeature = () => {
@@ -133,20 +161,20 @@ class CieManager {
    * It opens OS Settings on NFC section
    *
    */
-   openNFCSettings = () => {
-        if (Platform.OS === 'ios') {
-         return Promise.reject('not implemented');
-       }
-       return new Promise((resolve, reject) => {
-         NativeCie.openNFCSettings((err) => {
-           if (err) {
-             reject(err);
-           } else {
-             resolve();
-           }
-         })
-       })
-   }
+  openNFCSettings = () => {
+    if (Platform.OS === "ios") {
+      return Promise.reject("not implemented");
+    }
+    return new Promise((resolve, reject) => {
+      NativeCie.openNFCSettings(err => {
+        if (err) {
+          reject(err);
+        } else {
+          resolve();
+        }
+      });
+    });
+  };
 }
 
 export default new CieManager();

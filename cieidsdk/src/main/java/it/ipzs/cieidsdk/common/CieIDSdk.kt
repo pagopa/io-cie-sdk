@@ -11,6 +11,7 @@ import android.nfc.NfcManager
 import android.nfc.Tag
 import android.nfc.TagLostException
 import android.nfc.tech.IsoDep
+import android.os.Build
 import android.provider.Settings
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.observers.DisposableSingleObserver
@@ -49,10 +50,20 @@ object CieIDSdk : NfcAdapter.ReaderCallback {
     internal var deepLinkInfo: DeepLinkInfo = DeepLinkInfo()
     internal var ias: Ias? = null
     var enableLog: Boolean = false
-    var pin: String = ""
+    private var ciePin = ""
     // the timeout of transceive(byte[]) in milliseconds (https://developer.android.com/reference/android/nfc/tech/IsoDep#setTimeout(int))
     // a longer timeout may be useful when performing transactions that require a long processing time on the tag such as key generation.
     private const val isoDepTimeout: Int = 10000
+
+    private val ciePinRegex = Regex("^[0-9]{8}\$")
+    // pin property
+    // 'set' checks if the given value has a valid pin cie format (string, 8 length, all chars are digits)
+    var pin: String
+        get() = ciePin
+        set(value)  {
+            require(ciePinRegex.matches(value)) { "the given cie PIN has no valid format" }
+            ciePin = value
+        }
 
 
     @SuppressLint("CheckResult")
@@ -131,7 +142,7 @@ object CieIDSdk : NfcAdapter.ReaderCallback {
             isoDep.connect()
             ias = Ias(isoDep)
             ias!!.getIdServizi()
-            ias!!.startSecureChannel(pin)
+            ias!!.startSecureChannel(ciePin)
             val certificate = ias!!.readCertCie()
             call(certificate)
 
@@ -207,6 +218,15 @@ object CieIDSdk : NfcAdapter.ReaderCallback {
      */
     fun openNFCSettings(activity: Activity) {
         activity.startActivity(Intent(Settings.ACTION_NFC_SETTINGS))
+    }
+
+    /**
+    return true if the current OS supports the authentication. This method is due because with API level < 23 a security exception is raised
+    read more here - https://github.com/teamdigitale/io-cie-android-sdk/issues/10
+     */
+    fun hasApiLevelSupport() : Boolean {
+        // M is for Marshmallow! -> Api level 23
+        return Build.VERSION.SDK_INT >= Build.VERSION_CODES.M
     }
 
 
