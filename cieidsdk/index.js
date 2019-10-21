@@ -112,6 +112,16 @@ class CieManager {
     });
   };
 
+  isCIEAuthenticationSupported = async () => {
+    try {
+      const hasNFCFeature = await this.hasNFCFeature();
+      const hasApiLevelSupport = await this.hasApiLevelSupport();
+      return Promise.resolve(hasNFCFeature && hasApiLevelSupport);
+    } catch {
+      return Promise.resolve(false);
+    }
+  };
+
   /**
    * Return true if the nfc is enabled, on the device in Settings screen
    * is possible enable or disable it.
