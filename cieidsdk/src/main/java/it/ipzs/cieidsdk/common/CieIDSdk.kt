@@ -32,6 +32,7 @@ import java.net.SocketTimeoutException
 import java.net.UnknownHostException
 import javax.net.ssl.SSLProtocolException
 
+
 val CERTIFICATE_EXPIRED: CharSequence = "SSLV3_ALERT_CERTIFICATE_EXPIRED"
 val CERTIFICATE_REVOKED: CharSequence = "SSLV3_ALERT_CERTIFICATE_REVOKED"
 
@@ -227,6 +228,20 @@ object CieIDSdk : NfcAdapter.ReaderCallback {
     fun hasApiLevelSupport() : Boolean {
         // M is for Marshmallow! -> Api level 23
         return Build.VERSION.SDK_INT >= Build.VERSION_CODES.M
+    }
+
+    /**
+     * Open CieID application
+     * Use this method when receive CieIDEvent.Card.ON_CARD_PIN_LOCKED. User need to unlock CIE after 3 pin error.
+     */
+    fun launchCieID(activity: Activity){
+        val cieIdPackage = "it.ipzs.cieid"
+        try {
+            activity.startActivity(activity.packageManager.getLaunchIntentForPackage(cieIdPackage))
+        } catch (e: PackageManager.NameNotFoundException) {
+            activity.startActivity(Intent(Intent.ACTION_VIEW).setData(Uri.parse("https://play.google.com/store/apps/details?id=$cieIdPackage")))
+        }
+
     }
 
 
