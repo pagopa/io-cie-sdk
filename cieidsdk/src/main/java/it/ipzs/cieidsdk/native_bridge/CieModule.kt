@@ -36,7 +36,7 @@ class CieModule(reactContext: ReactApplicationContext) : ReactContextBaseJavaMod
      * onEvent is called if an event occurs
      */
     override fun onEvent(event: Event) {
-        cieInvalidPinAttempts = event.attempts!!
+        cieInvalidPinAttempts = event.attempts ?: cieInvalidPinAttempts
         this.sendEvent(eventChannel,event.toString())
     }
 
