@@ -2,7 +2,6 @@
 import { NativeEventEmitter, NativeModules, Platform } from "react-native";
 
 const NativeCie = NativeModules.NativeCieModule;
-const NativeCieEmitter = new NativeEventEmitter(NativeCie);
 
 class CieManager {
   constructor() {
@@ -16,9 +15,13 @@ class CieManager {
    * private
    */
   _registerEventEmitter = () => {
+    if (Platform.OS === "ios") {
+      return;
+    }
+    const NativeCieEmitter = new NativeEventEmitter(NativeCie);
     NativeCieEmitter.addListener("onEvent", e => {
       this._eventHandlers.forEach(h =>
-        h({ event: e.event, attempts: e.attempts })
+        h({ event: e.event, attempts: e.attemptsLeft })
       );
     });
     NativeCieEmitter.addListener("onSuccess", e => {
@@ -61,8 +64,11 @@ class CieManager {
    * the promise will be rejected
    */
   setPin = pin => {
+    if (Platform.OS === "ios") {
+      return Promise.reject("not implemented");
+    }
     return new Promise((resolve, reject) => {
-      NativeCie.setPin(pin, (err, _) => {
+      NativeCie.setPin(pin, err => {
         if (err) {
           reject(err);
         } else {
@@ -77,8 +83,11 @@ class CieManager {
   };
 
   start = () => {
+    if (Platform.OS === "ios") {
+      return Promise.reject("not implemented");
+    }
     return new Promise((resolve, reject) => {
-      NativeCie.start((err, _) => {
+      NativeCie.start(err => {
         if (err) {
           reject(err);
         } else {
@@ -89,8 +98,11 @@ class CieManager {
   };
 
   startListeningNFC = () => {
+    if (Platform.OS === "ios") {
+      return Promise.reject("not implemented");
+    }
     return new Promise((resolve, reject) => {
-      NativeCie.startListeningNFC((err, _) => {
+      NativeCie.startListeningNFC(err => {
         if (err) {
           reject(err);
         } else {
@@ -102,7 +114,7 @@ class CieManager {
 
   stopListeningNFC = () => {
     return new Promise((resolve, reject) => {
-      NativeCie.stopListeningNFC((err, _) => {
+      NativeCie.stopListeningNFC(err => {
         if (err) {
           reject(err);
         } else {
