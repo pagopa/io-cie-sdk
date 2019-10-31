@@ -16,7 +16,7 @@ declare module "react-native-cie" {
 
   type Event = {
     event: CIEEvent;
-    attempts: number;
+    attemptsLeft: number;
   };
   interface CieManager {
     /**

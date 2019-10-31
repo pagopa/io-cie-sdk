@@ -14,7 +14,7 @@ class CieModule(reactContext: ReactApplicationContext) : ReactContextBaseJavaMod
     Callback {
 
 
-    private var cieInvalidPinAttempts: Int = 0
+    private var ciePinAttemptsLeft: Int = 0
 
     /**
      * onSuccess is called when the CIE authentication is successfully completed.
@@ -36,8 +36,8 @@ class CieModule(reactContext: ReactApplicationContext) : ReactContextBaseJavaMod
      * onEvent is called if an event occurs
      */
     override fun onEvent(event: Event) {
-        cieInvalidPinAttempts = event.attempts ?: cieInvalidPinAttempts
-        this.sendEvent(eventChannel,event.toString())
+        ciePinAttemptsLeft = event.attemptsLeft ?: ciePinAttemptsLeft
+        this.sendEvent(eventChannel,event.event.toString())
     }
 
     override fun getName(): String {
@@ -47,7 +47,7 @@ class CieModule(reactContext: ReactApplicationContext) : ReactContextBaseJavaMod
     private fun getWritableMap(eventValue: String): WritableMap {
         val writableMap = createMap()
         writableMap.putString("event", eventValue)
-        writableMap.putInt("attempts", cieInvalidPinAttempts)
+        writableMap.putInt("attemptsLeft", ciePinAttemptsLeft)
         return writableMap
     }
 
@@ -62,9 +62,9 @@ class CieModule(reactContext: ReactApplicationContext) : ReactContextBaseJavaMod
     fun start(callback: com.facebook.react.bridge.Callback) {
         try {
             CieIDSdk.start(getCurrentActivity()!!, this)
-            callback.invoke(null, null)
+            callback.invoke()
         } catch (e: RuntimeException) {
-            callback.invoke(e.message, null)
+            callback.invoke(e.message)
         }
     }
 
@@ -97,9 +97,9 @@ class CieModule(reactContext: ReactApplicationContext) : ReactContextBaseJavaMod
     fun startListeningNFC(callback: com.facebook.react.bridge.Callback) {
         try {
             CieIDSdk.startNFCListening(getCurrentActivity()!!)
-            callback.invoke(null, null)
+            callback.invoke()
         } catch (e: RuntimeException) {
-            callback.invoke(e.message, null)
+            callback.invoke(e.message)
         }
     }
 
@@ -107,9 +107,9 @@ class CieModule(reactContext: ReactApplicationContext) : ReactContextBaseJavaMod
     fun stopListeningNFC(callback: com.facebook.react.bridge.Callback) {
         try {
             CieIDSdk.stopNFCListening(getCurrentActivity()!!)
-            callback.invoke(null, null)
+            callback.invoke()
         } catch (e: RuntimeException) {
-            callback.invoke(e.message, null)
+            callback.invoke(e.message)
         }
     }
 

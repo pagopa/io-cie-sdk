@@ -30,4 +30,4 @@ interface  EventEnum
         ON_NO_INTERNET_CONNECTION;
     }
 
-data class Event(var event : EventEnum,var attempts : Int? = null,var url : String? = null)
+data class Event(var event : EventEnum,var attemptsLeft : Int? = null,var url : String? = null)

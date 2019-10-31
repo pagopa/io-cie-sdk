@@ -13,7 +13,7 @@ import it.ipzs.cieidsdk.common.CieIDSdk
 fun setFinalStatic(field: Field, newValue: Any) {
     field.setAccessible(true)
 
-    val modifiersField = Field::class.java!!.getDeclaredField("modifiers")
+    val modifiersField = Field::class.java.getDeclaredField("modifiers")
     modifiersField.setAccessible(true)
     modifiersField.setInt(field, field.getModifiers() and Modifier.FINAL.inv())
 
