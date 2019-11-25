@@ -21,7 +21,7 @@ class CieManager {
     const NativeCieEmitter = new NativeEventEmitter(NativeCie);
     NativeCieEmitter.addListener("onEvent", e => {
       this._eventHandlers.forEach(h =>
-        h({ event: e.event, attempts: e.attemptsLeft })
+        h(e)
       );
     });
     NativeCieEmitter.addListener("onSuccess", e => {
