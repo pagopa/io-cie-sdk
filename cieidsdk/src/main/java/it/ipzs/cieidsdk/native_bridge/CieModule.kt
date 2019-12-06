@@ -70,12 +70,13 @@ class CieModule(reactContext: ReactApplicationContext) : ReactContextBaseJavaMod
 
     @ReactMethod
     fun isNFCEnabled(callback: com.facebook.react.bridge.Callback) {
-        callback.invoke(CieIDSdk.isNFCEnabled(getCurrentActivity()!!))
+
+        callback.invoke(CieIDSdk.isNFCEnabled(reactApplicationContext))
     }
 
     @ReactMethod
     fun hasNFCFeature(callback: com.facebook.react.bridge.Callback) {
-        callback.invoke(CieIDSdk.hasFeatureNFC(getCurrentActivity()!!))
+        callback.invoke(CieIDSdk.hasFeatureNFC(reactApplicationContext))
     }
 
     @ReactMethod
