@@ -10,9 +10,6 @@ import java.util.ArrayList
 
 
 class CiePackage : ReactPackage {
-    override fun createJSModules(): MutableList<Class<out JavaScriptModule>> {
-        return ArrayList()
-    }
 
     override fun createNativeModules(reactApplicationContext: ReactApplicationContext): List<NativeModule> {
         val modules = ArrayList<NativeModule>()
