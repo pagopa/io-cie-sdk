@@ -31,7 +31,6 @@ import retrofit2.Response
 import java.net.SocketTimeoutException
 import java.net.UnknownHostException
 import javax.net.ssl.SSLProtocolException
-import javassist.bytecode.ByteArray
 
 
 
@@ -242,7 +241,11 @@ object CieIDSdk : NfcAdapter.ReaderCallback {
     fun launchCieID(activity: Activity){
         val cieIdPackage = "it.ipzs.cieid"
         try {
-            activity.startActivity(activity.packageManager.getLaunchIntentForPackage(cieIdPackage))
+            activity.startActivity(
+                Intent(
+                    Intent.ACTION_VIEW,
+                    Uri.parse("market://details?id=$cieIdPackage")
+                ))
         } catch (e: PackageManager.NameNotFoundException) {
             activity.startActivity(Intent(Intent.ACTION_VIEW).setData(Uri.parse("https://play.google.com/store/apps/details?id=$cieIdPackage")))
         }
