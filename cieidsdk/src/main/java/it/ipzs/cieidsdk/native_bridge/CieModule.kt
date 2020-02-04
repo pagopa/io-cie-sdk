@@ -122,7 +122,7 @@ class CieModule(reactContext: ReactApplicationContext) : ReactContextBaseJavaMod
 
     @ReactMethod
     fun openNFCSettings(callback: com.facebook.react.bridge.Callback) {
-        val currentActivity = currentActivity
+        val currentActivity = getCurrentActivity()!!
         if (currentActivity == null) {
             callback.invoke("fail to get current activity");
         } else {
@@ -134,6 +134,17 @@ class CieModule(reactContext: ReactApplicationContext) : ReactContextBaseJavaMod
     @ReactMethod
     fun hasApiLevelSupport(callback: com.facebook.react.bridge.Callback) {
         callback.invoke(CieIDSdk.hasApiLevelSupport())
+    }
+
+    @ReactMethod
+    fun launchCieID(callback: com.facebook.react.bridge.Callback) {
+        val currentActivity = getCurrentActivity()!!
+        if (currentActivity == null) {
+            callback.invoke("fail to get current activity");
+        } else {
+            CieIDSdk.launchCieID(currentActivity);
+            callback.invoke();
+        }
     }
 
 }
