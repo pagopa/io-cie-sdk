@@ -20,9 +20,7 @@ class CieManager {
     }
     const NativeCieEmitter = new NativeEventEmitter(NativeCie);
     NativeCieEmitter.addListener("onEvent", e => {
-      this._eventHandlers.forEach(h =>
-        h(e)
-      );
+      this._eventHandlers.forEach(h => h(e));
     });
     NativeCieEmitter.addListener("onSuccess", e => {
       this._eventSuccessHandlers.forEach(h => h(e.event));
@@ -189,6 +187,21 @@ class CieManager {
     }
     return new Promise((resolve, reject) => {
       NativeCie.openNFCSettings(err => {
+        if (err) {
+          reject(err);
+        } else {
+          resolve();
+        }
+      });
+    });
+  };
+
+  launchCieID = () => {
+    if (Platform.OS === "ios") {
+      return Promise.reject("not implemented");
+    }
+    return new Promise((resolve, reject) => {
+      NativeCie.launchCieID(err => {
         if (err) {
           reject(err);
         } else {
