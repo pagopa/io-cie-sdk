@@ -1,23 +1,26 @@
 // Type definitions for react-native-cie
 // Project: https://github.com/teamdigitale/io-cie-android-sdk
-declare module "react-native-cie" {
-  // All events returned by onEvent callback
-  type CIEEvent =
-    | "ON_TAG_DISCOVERED_NOT_CIE"
-    | "ON_TAG_DISCOVERED"
-    | "ON_TAG_LOST"
-    | "ON_CARD_PIN_LOCKED"
-    | "ON_PIN_ERROR"
-    | "PIN_INPUT_ERROR"
-    | "CERTIFICATE_EXPIRED"
-    | "CERTIFICATE_REVOKED"
-    | "AUTHENTICATION_ERROR"
-    | "ON_NO_INTERNET_CONNECTION";
 
-  type Event = {
-    event: CIEEvent;
-    attemptsLeft: number;
-  };
+// All events returned by onEvent callback
+type CIEEvent =
+| "ON_TAG_DISCOVERED_NOT_CIE"
+| "ON_TAG_DISCOVERED"
+| "ON_TAG_LOST"
+| "ON_CARD_PIN_LOCKED"
+| "ON_PIN_ERROR"
+| "PIN_INPUT_ERROR"
+| "CERTIFICATE_EXPIRED"
+| "CERTIFICATE_REVOKED"
+| "AUTHENTICATION_ERROR"
+| "ON_NO_INTERNET_CONNECTION";
+
+export type Event = {
+event: CIEEvent;
+attemptsLeft: number;
+};
+
+declare module "react-native-cie" {
+  
   interface CieManager {
     /**
      * check if the OS support CIE autentication
