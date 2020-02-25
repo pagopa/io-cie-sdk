@@ -21,7 +21,7 @@ attemptsLeft: number;
 
 declare module "react-native-cie" {
   
-  interface CieManager {
+  export default interface CieManager {
     /**
      * check if the OS support CIE autentication
      */
@@ -92,8 +92,4 @@ declare module "react-native-cie" {
      */
     removeAllListeners(): void;
   }
-
-  const cieManager: CieManager;
 }
-
-export default cieManager;
