@@ -111,6 +111,10 @@ class CieManager {
   };
 
   stopListeningNFC = () => {
+    if (Platform.OS === "ios") {
+      // do nothing
+      return Promise.resolve();
+    }
     return new Promise((resolve, reject) => {
       NativeCie.stopListeningNFC(err => {
         if (err) {
