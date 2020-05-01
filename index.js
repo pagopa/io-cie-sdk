@@ -1,7 +1,9 @@
 "use strict";
 import { NativeEventEmitter, NativeModules, Platform } from "react-native";
 
-const NativeCie = NativeModules.NativeCieModule;
+const NativeCie = Platform.OS === "ios" ? NativeModules.CieModule : NativeModules.NativeCieModule;
+
+const isIosDeviceCompatible = Platform.OS === "ios" && parseInt(Platform.Version, 10) >= 13;
 
 class CieManager {
   constructor() {
@@ -15,7 +17,7 @@ class CieManager {
    * private
    */
   _registerEventEmitter = () => {
-    if (Platform.OS === "ios") {
+    if (Platform.OS === "ios" && !isIosDeviceCompatible) {
       return;
     }
     const NativeCieEmitter = new NativeEventEmitter(NativeCie);
@@ -63,8 +65,12 @@ class CieManager {
    */
   setPin = pin => {
     if (Platform.OS === "ios") {
-      return Promise.reject("not implemented");
-    }
+        if(!isIosDeviceCompatible){
+            Promise.reject("this device is not compatible");
+        }
+        NativeCie.setPIN(pin);
+        return Promise.resolve();
+      }
     return new Promise((resolve, reject) => {
       NativeCie.setPin(pin, err => {
         if (err) {
@@ -77,12 +83,21 @@ class CieManager {
   };
 
   setAuthenticationUrl = url => {
+    if (Platform.OS === "ios") {
+        if(!isIosDeviceCompatible){
+            return;
+        }
+        NativeCie.setAuthenticationUrl(url);
+        return;
+      }
     NativeCie.setAuthenticationUrl(url);
   };
 
   start = () => {
     if (Platform.OS === "ios") {
-      return Promise.reject("not implemented");
+        if(!isIosDeviceCompatible){
+            return Promise.reject("not compatibile");
+        }
     }
     return new Promise((resolve, reject) => {
       NativeCie.start(err => {
@@ -97,6 +112,9 @@ class CieManager {
 
   startListeningNFC = () => {
     if (Platform.OS === "ios") {
+        if(isIosDeviceCompatible){
+            return Promise.resolve()
+        }
       return Promise.reject("not implemented");
     }
     return new Promise((resolve, reject) => {
@@ -128,6 +146,9 @@ class CieManager {
 
   isCIEAuthenticationSupported = async () => {
     try {
+        if (Platform.OS === "ios") {
+            return Promise.resolve(isIosDeviceCompatible);
+          }
       const hasNFCFeature = await this.hasNFCFeature();
       const hasApiLevelSupport = await this.hasApiLevelSupport();
       return Promise.resolve(hasNFCFeature && hasApiLevelSupport);
@@ -142,8 +163,8 @@ class CieManager {
    */
   isNFCEnabled = () => {
     if (Platform.OS === "ios") {
-      return Promise.reject("not implemented");
-    }
+        return Promise.resolve(isIosDeviceCompatible);
+      }
     return new Promise(resolve => {
       NativeCie.isNFCEnabled(result => {
         resolve(result);
@@ -158,8 +179,8 @@ class CieManager {
    */
   hasApiLevelSupport = () => {
     if (Platform.OS === "ios") {
-      return Promise.reject("not implemented");
-    }
+        return Promise.resolve(isIosDeviceCompatible);
+      }
     return new Promise(resolve => {
       NativeCie.hasApiLevelSupport(result => {
         resolve(result);
@@ -172,8 +193,8 @@ class CieManager {
    */
   hasNFCFeature = () => {
     if (Platform.OS === "ios") {
-      return Promise.reject("not implemented");
-    }
+        return Promise.resolve(isIosDeviceCompatible);
+      }
     return new Promise(resolve => {
       NativeCie.hasNFCFeature(result => {
         resolve(result);

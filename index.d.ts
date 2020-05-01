@@ -21,6 +21,8 @@ attemptsLeft: number;
 
   
 class CieManager {
+
+
   /**
    * check if the OS support CIE autentication
    */

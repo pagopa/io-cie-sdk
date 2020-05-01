@@ -1,0 +1,458 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		B3E7B58A1CC2AC0600A0062D /* RNNativeCiesdk.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E7B5891CC2AC0600A0062D /* RNNativeCiesdk.m */; };
+		E511132D2434A2BC00FA135A /* MAC.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E51112F52434A2B700FA135A /* MAC.cpp */; };
+		E511132E2434A2BC00FA135A /* Logging.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51112F62434A2B700FA135A /* Logging.swift */; };
+		E511132F2434A2BC00FA135A /* libnghttp2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E51112F82434A2B700FA135A /* libnghttp2.a */; };
+		E51113302434A2BC00FA135A /* CieModule.m in Sources */ = {isa = PBXBuildFile; fileRef = E51112F92434A2B700FA135A /* CieModule.m */; };
+		E51113312434A2BC00FA135A /* Array.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E51112FB2434A2B700FA135A /* Array.cpp */; };
+		E51113322434A2BC00FA135A /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51112FC2434A2B800FA135A /* Token.swift */; };
+		E51113332434A2BC00FA135A /* MD5.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E51113002434A2B800FA135A /* MD5.cpp */; };
+		E51113342434A2BC00FA135A /* libcurl_iOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E51113022434A2B800FA135A /* libcurl_iOS.a */; };
+		E51113352434A2BC00FA135A /* RSA.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E51113032434A2B800FA135A /* RSA.cpp */; };
+		E51113362434A2BC00FA135A /* DES3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E51113052434A2B800FA135A /* DES3.cpp */; };
+		E51113372434A2BC00FA135A /* AES.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E51113062434A2B800FA135A /* AES.cpp */; };
+		E51113382434A2BC00FA135A /* HTTPSConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = E51113072434A2B800FA135A /* HTTPSConnection.m */; };
+		E51113392434A2BC00FA135A /* util.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E51113082434A2B800FA135A /* util.cpp */; };
+		E511133A2434A2BC00FA135A /* ExtAuthKey.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E511130A2434A2B900FA135A /* ExtAuthKey.cpp */; };
+		E511133B2434A2BC00FA135A /* UtilException.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E511130B2434A2B900FA135A /* UtilException.cpp */; };
+		E511133C2434A2BC00FA135A /* TLV.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E51113102434A2B900FA135A /* TLV.cpp */; };
+		E511133D2434A2BC00FA135A /* CIEEngine.c in Sources */ = {isa = PBXBuildFile; fileRef = E51113132434A2BA00FA135A /* CIEEngine.c */; };
+		E511133E2434A2BC00FA135A /* CIEIDSdk.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51113142434A2BA00FA135A /* CIEIDSdk.swift */; };
+		E511133F2434A2BC00FA135A /* ErrorHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51113152434A2BA00FA135A /* ErrorHelper.swift */; };
+		E51113402434A2BC00FA135A /* CIETagReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51113162434A2BA00FA135A /* CIETagReader.swift */; };
+		E51113412434A2BC00FA135A /* CIEEngineHelper.c in Sources */ = {isa = PBXBuildFile; fileRef = E51113182434A2BA00FA135A /* CIEEngineHelper.c */; };
+		E51113422434A2BC00FA135A /* Token.mm in Sources */ = {isa = PBXBuildFile; fileRef = E511131A2434A2BA00FA135A /* Token.mm */; };
+		E51113432434A2BC00FA135A /* SHA256.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E511131B2434A2BA00FA135A /* SHA256.cpp */; };
+		E51113442434A2BC00FA135A /* SHA1.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E51113202434A2BB00FA135A /* SHA1.cpp */; };
+		E51113452434A2BC00FA135A /* ASNParser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E51113212434A2BB00FA135A /* ASNParser.cpp */; };
+		E51113462434A2BC00FA135A /* Base64.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E51113222434A2BB00FA135A /* Base64.cpp */; };
+		E51113472434A2BC00FA135A /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E51113232434A2BB00FA135A /* libssl.a */; };
+		E51113492434A2BC00FA135A /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E51113292434A2BB00FA135A /* libcrypto.a */; };
+		E511134A2434A2BC00FA135A /* IAS.mm in Sources */ = {isa = PBXBuildFile; fileRef = E511132A2434A2BC00FA135A /* IAS.mm */; };
+		E511134B2434A2BC00FA135A /* SHA512.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E511132C2434A2BC00FA135A /* SHA512.cpp */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		58B511D91A9E6C8500147676 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/$(PRODUCT_NAME)";
+			dstSubfolderSpec = 16;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		134814201AA4EA6300B7C361 /* libRNNativeCiesdk.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libRNNativeCiesdk.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		B3E7B5881CC2AC0600A0062D /* RNNativeCiesdk.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNNativeCiesdk.h; sourceTree = "<group>"; };
+		B3E7B5891CC2AC0600A0062D /* RNNativeCiesdk.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNNativeCiesdk.m; sourceTree = "<group>"; };
+		E51112F42434A2B700FA135A /* RNNativeCiesdk-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RNNativeCiesdk-Bridging-Header.h"; sourceTree = "<group>"; };
+		E51112F52434A2B700FA135A /* MAC.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MAC.cpp; sourceTree = "<group>"; };
+		E51112F62434A2B700FA135A /* Logging.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logging.swift; sourceTree = "<group>"; };
+		E51112F72434A2B700FA135A /* Array.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Array.h; sourceTree = "<group>"; };
+		E51112F82434A2B700FA135A /* libnghttp2.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libnghttp2.a; sourceTree = "<group>"; };
+		E51112F92434A2B700FA135A /* CieModule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CieModule.m; sourceTree = "<group>"; };
+		E51112FA2434A2B700FA135A /* CieModule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CieModule.h; sourceTree = "<group>"; };
+		E51112FB2434A2B700FA135A /* Array.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Array.cpp; sourceTree = "<group>"; };
+		E51112FC2434A2B800FA135A /* Token.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
+		E51112FD2434A2B800FA135A /* CIEEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CIEEngine.h; sourceTree = "<group>"; };
+		E51112FE2434A2B800FA135A /* sha512.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sha512.h; sourceTree = "<group>"; };
+		E51112FF2434A2B800FA135A /* MD5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MD5.h; sourceTree = "<group>"; };
+		E51113002434A2B800FA135A /* MD5.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MD5.cpp; sourceTree = "<group>"; };
+		E51113012434A2B800FA135A /* defines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = defines.h; sourceTree = "<group>"; };
+		E51113022434A2B800FA135A /* libcurl_iOS.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libcurl_iOS.a; sourceTree = "<group>"; };
+		E51113032434A2B800FA135A /* RSA.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RSA.cpp; sourceTree = "<group>"; };
+		E51113042434A2B800FA135A /* util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = util.h; sourceTree = "<group>"; };
+		E51113052434A2B800FA135A /* DES3.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DES3.cpp; sourceTree = "<group>"; };
+		E51113062434A2B800FA135A /* AES.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AES.cpp; sourceTree = "<group>"; };
+		E51113072434A2B800FA135A /* HTTPSConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTTPSConnection.m; sourceTree = "<group>"; };
+		E51113082434A2B800FA135A /* util.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = util.cpp; sourceTree = "<group>"; };
+		E51113092434A2B900FA135A /* include */ = {isa = PBXFileReference; lastKnownFileType = folder; path = include; sourceTree = "<group>"; };
+		E511130A2434A2B900FA135A /* ExtAuthKey.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ExtAuthKey.cpp; sourceTree = "<group>"; };
+		E511130B2434A2B900FA135A /* UtilException.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = UtilException.cpp; sourceTree = "<group>"; };
+		E511130C2434A2B900FA135A /* CIEEngineHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CIEEngineHelper.h; sourceTree = "<group>"; };
+		E511130D2434A2B900FA135A /* SHA1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHA1.h; sourceTree = "<group>"; };
+		E511130E2434A2B900FA135A /* sha256.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sha256.h; sourceTree = "<group>"; };
+		E511130F2434A2B900FA135A /* DES3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DES3.h; sourceTree = "<group>"; };
+		E51113102434A2B900FA135A /* TLV.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TLV.cpp; sourceTree = "<group>"; };
+		E51113112434A2B900FA135A /* Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Base64.h; sourceTree = "<group>"; };
+		E51113122434A2B900FA135A /* TLV.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLV.h; sourceTree = "<group>"; };
+		E51113132434A2BA00FA135A /* CIEEngine.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = CIEEngine.c; sourceTree = "<group>"; };
+		E51113142434A2BA00FA135A /* CIEIDSdk.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CIEIDSdk.swift; sourceTree = "<group>"; };
+		E51113152434A2BA00FA135A /* ErrorHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorHelper.swift; sourceTree = "<group>"; };
+		E51113162434A2BA00FA135A /* CIETagReader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CIETagReader.swift; sourceTree = "<group>"; };
+		E51113172434A2BA00FA135A /* HTTPSConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTTPSConnection.h; sourceTree = "<group>"; };
+		E51113182434A2BA00FA135A /* CIEEngineHelper.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = CIEEngineHelper.c; sourceTree = "<group>"; };
+		E51113192434A2BA00FA135A /* RSA.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSA.h; sourceTree = "<group>"; };
+		E511131A2434A2BA00FA135A /* Token.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Token.mm; sourceTree = "<group>"; };
+		E511131B2434A2BA00FA135A /* SHA256.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SHA256.cpp; sourceTree = "<group>"; };
+		E511131C2434A2BA00FA135A /* CryptoUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CryptoUtil.h; sourceTree = "<group>"; };
+		E511131D2434A2BA00FA135A /* ASNParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASNParser.h; sourceTree = "<group>"; };
+		E511131E2434A2BA00FA135A /* iocieiossdk.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = iocieiossdk.entitlements; sourceTree = "<group>"; };
+		E511131F2434A2BB00FA135A /* Token.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Token.h; sourceTree = "<group>"; };
+		E51113202434A2BB00FA135A /* SHA1.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SHA1.cpp; sourceTree = "<group>"; };
+		E51113212434A2BB00FA135A /* ASNParser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ASNParser.cpp; sourceTree = "<group>"; };
+		E51113222434A2BB00FA135A /* Base64.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Base64.cpp; sourceTree = "<group>"; };
+		E51113232434A2BB00FA135A /* libssl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libssl.a; sourceTree = "<group>"; };
+		E51113242434A2BB00FA135A /* wintypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = wintypes.h; sourceTree = "<group>"; };
+		E51113262434A2BB00FA135A /* MAC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MAC.h; sourceTree = "<group>"; };
+		E51113272434A2BB00FA135A /* IAS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IAS.h; sourceTree = "<group>"; };
+		E51113282434A2BB00FA135A /* AES.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AES.h; sourceTree = "<group>"; };
+		E51113292434A2BB00FA135A /* libcrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libcrypto.a; sourceTree = "<group>"; };
+		E511132A2434A2BC00FA135A /* IAS.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = IAS.mm; sourceTree = "<group>"; };
+		E511132B2434A2BC00FA135A /* UtilException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UtilException.h; sourceTree = "<group>"; };
+		E511132C2434A2BC00FA135A /* SHA512.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SHA512.cpp; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		58B511D81A9E6C8500147676 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E51113472434A2BC00FA135A /* libssl.a in Frameworks */,
+				E51113492434A2BC00FA135A /* libcrypto.a in Frameworks */,
+				E511132F2434A2BC00FA135A /* libnghttp2.a in Frameworks */,
+				E51113342434A2BC00FA135A /* libcurl_iOS.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		134814211AA4EA7D00B7C361 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				134814201AA4EA6300B7C361 /* libRNNativeCiesdk.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		58B511D21A9E6C8500147676 = {
+			isa = PBXGroup;
+			children = (
+				E51113062434A2B800FA135A /* AES.cpp */,
+				E51113282434A2BB00FA135A /* AES.h */,
+				E51112FB2434A2B700FA135A /* Array.cpp */,
+				E51112F72434A2B700FA135A /* Array.h */,
+				E51113212434A2BB00FA135A /* ASNParser.cpp */,
+				E511131D2434A2BA00FA135A /* ASNParser.h */,
+				E51113222434A2BB00FA135A /* Base64.cpp */,
+				E51113112434A2B900FA135A /* Base64.h */,
+				E51113132434A2BA00FA135A /* CIEEngine.c */,
+				E51112FD2434A2B800FA135A /* CIEEngine.h */,
+				E51113182434A2BA00FA135A /* CIEEngineHelper.c */,
+				E511130C2434A2B900FA135A /* CIEEngineHelper.h */,
+				E51113142434A2BA00FA135A /* CIEIDSdk.swift */,
+				E51112FA2434A2B700FA135A /* CieModule.h */,
+				E51112F92434A2B700FA135A /* CieModule.m */,
+				E51113162434A2BA00FA135A /* CIETagReader.swift */,
+				E511131C2434A2BA00FA135A /* CryptoUtil.h */,
+				E51113012434A2B800FA135A /* defines.h */,
+				E51113052434A2B800FA135A /* DES3.cpp */,
+				E511130F2434A2B900FA135A /* DES3.h */,
+				E51113152434A2BA00FA135A /* ErrorHelper.swift */,
+				E511130A2434A2B900FA135A /* ExtAuthKey.cpp */,
+				E51113172434A2BA00FA135A /* HTTPSConnection.h */,
+				E51113072434A2B800FA135A /* HTTPSConnection.m */,
+				E51113272434A2BB00FA135A /* IAS.h */,
+				E511132A2434A2BC00FA135A /* IAS.mm */,
+				E51113092434A2B900FA135A /* include */,
+				E511131E2434A2BA00FA135A /* iocieiossdk.entitlements */,
+				E51113292434A2BB00FA135A /* libcrypto.a */,
+				E51113022434A2B800FA135A /* libcurl_iOS.a */,
+				E51112F82434A2B700FA135A /* libnghttp2.a */,
+				E51113232434A2BB00FA135A /* libssl.a */,
+				E51112F62434A2B700FA135A /* Logging.swift */,
+				E51112F52434A2B700FA135A /* MAC.cpp */,
+				E51113262434A2BB00FA135A /* MAC.h */,
+				E51113002434A2B800FA135A /* MD5.cpp */,
+				E51112FF2434A2B800FA135A /* MD5.h */,
+				E51113032434A2B800FA135A /* RSA.cpp */,
+				E51113192434A2BA00FA135A /* RSA.h */,
+				E51113202434A2BB00FA135A /* SHA1.cpp */,
+				E511130D2434A2B900FA135A /* SHA1.h */,
+				E511131B2434A2BA00FA135A /* SHA256.cpp */,
+				E511130E2434A2B900FA135A /* sha256.h */,
+				E511132C2434A2BC00FA135A /* SHA512.cpp */,
+				E51112FE2434A2B800FA135A /* sha512.h */,
+				E51113102434A2B900FA135A /* TLV.cpp */,
+				E51113122434A2B900FA135A /* TLV.h */,
+				E511131F2434A2BB00FA135A /* Token.h */,
+				E511131A2434A2BA00FA135A /* Token.mm */,
+				E51112FC2434A2B800FA135A /* Token.swift */,
+				E51113082434A2B800FA135A /* util.cpp */,
+				E51113042434A2B800FA135A /* util.h */,
+				E511130B2434A2B900FA135A /* UtilException.cpp */,
+				E511132B2434A2BC00FA135A /* UtilException.h */,
+				E51113242434A2BB00FA135A /* wintypes.h */,
+				B3E7B5881CC2AC0600A0062D /* RNNativeCiesdk.h */,
+				B3E7B5891CC2AC0600A0062D /* RNNativeCiesdk.m */,
+				134814211AA4EA7D00B7C361 /* Products */,
+				E51112D72434A08C00FA135A /* Frameworks */,
+				E51112F42434A2B700FA135A /* RNNativeCiesdk-Bridging-Header.h */,
+			);
+			sourceTree = "<group>";
+		};
+		E51112D72434A08C00FA135A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		58B511DA1A9E6C8500147676 /* RNNativeCiesdk */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 58B511EF1A9E6C8500147676 /* Build configuration list for PBXNativeTarget "RNNativeCiesdk" */;
+			buildPhases = (
+				58B511D71A9E6C8500147676 /* Sources */,
+				58B511D81A9E6C8500147676 /* Frameworks */,
+				58B511D91A9E6C8500147676 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = RNNativeCiesdk;
+			productName = RCTDataManager;
+			productReference = 134814201AA4EA6300B7C361 /* libRNNativeCiesdk.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		58B511D31A9E6C8500147676 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0830;
+				ORGANIZATIONNAME = Facebook;
+				TargetAttributes = {
+					58B511DA1A9E6C8500147676 = {
+						CreatedOnToolsVersion = 6.1.1;
+						LastSwiftMigration = 1130;
+					};
+				};
+			};
+			buildConfigurationList = 58B511D61A9E6C8500147676 /* Build configuration list for PBXProject "RNNativeCiesdk" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				English,
+				en,
+			);
+			mainGroup = 58B511D21A9E6C8500147676;
+			productRefGroup = 58B511D21A9E6C8500147676;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				58B511DA1A9E6C8500147676 /* RNNativeCiesdk */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		58B511D71A9E6C8500147676 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E51113362434A2BC00FA135A /* DES3.cpp in Sources */,
+				E51113412434A2BC00FA135A /* CIEEngineHelper.c in Sources */,
+				E51113442434A2BC00FA135A /* SHA1.cpp in Sources */,
+				E51113382434A2BC00FA135A /* HTTPSConnection.m in Sources */,
+				B3E7B58A1CC2AC0600A0062D /* RNNativeCiesdk.m in Sources */,
+				E511133E2434A2BC00FA135A /* CIEIDSdk.swift in Sources */,
+				E511133D2434A2BC00FA135A /* CIEEngine.c in Sources */,
+				E51113462434A2BC00FA135A /* Base64.cpp in Sources */,
+				E51113432434A2BC00FA135A /* SHA256.cpp in Sources */,
+				E51113302434A2BC00FA135A /* CieModule.m in Sources */,
+				E51113402434A2BC00FA135A /* CIETagReader.swift in Sources */,
+				E511132E2434A2BC00FA135A /* Logging.swift in Sources */,
+				E511133B2434A2BC00FA135A /* UtilException.cpp in Sources */,
+				E511133C2434A2BC00FA135A /* TLV.cpp in Sources */,
+				E511133A2434A2BC00FA135A /* ExtAuthKey.cpp in Sources */,
+				E51113422434A2BC00FA135A /* Token.mm in Sources */,
+				E511133F2434A2BC00FA135A /* ErrorHelper.swift in Sources */,
+				E51113322434A2BC00FA135A /* Token.swift in Sources */,
+				E511134B2434A2BC00FA135A /* SHA512.cpp in Sources */,
+				E511132D2434A2BC00FA135A /* MAC.cpp in Sources */,
+				E51113312434A2BC00FA135A /* Array.cpp in Sources */,
+				E51113352434A2BC00FA135A /* RSA.cpp in Sources */,
+				E51113332434A2BC00FA135A /* MD5.cpp in Sources */,
+				E51113452434A2BC00FA135A /* ASNParser.cpp in Sources */,
+				E511134A2434A2BC00FA135A /* IAS.mm in Sources */,
+				E51113372434A2BC00FA135A /* AES.cpp in Sources */,
+				E51113392434A2BC00FA135A /* util.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		58B511ED1A9E6C8500147676 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		58B511EE1A9E6C8500147676 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		58B511F01A9E6C8500147676 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"$(SRCROOT)/../../../React/**",
+					"$(SRCROOT)/../../react-native/React/**",
+					"$(SRCROOT)/include",
+				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = RNNativeCiesdk;
+				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "RNNativeCiesdk-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		58B511F11A9E6C8500147676 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"$(SRCROOT)/../../../React/**",
+					"$(SRCROOT)/../../react-native/React/**",
+					"$(SRCROOT)/include",
+				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = RNNativeCiesdk;
+				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "RNNativeCiesdk-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		58B511D61A9E6C8500147676 /* Build configuration list for PBXProject "RNNativeCiesdk" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				58B511ED1A9E6C8500147676 /* Debug */,
+				58B511EE1A9E6C8500147676 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		58B511EF1A9E6C8500147676 /* Build configuration list for PBXNativeTarget "RNNativeCiesdk" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				58B511F01A9E6C8500147676 /* Debug */,
+				58B511F11A9E6C8500147676 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 58B511D31A9E6C8500147676 /* Project object */;
+}
