@@ -25,6 +25,8 @@ interface  EventEnum
     enum class EventError : EventEnum {
         //error
         AUTHENTICATION_ERROR,
+        STOP_NFC_ERROR,
+        START_NFC_ERROR,
         GENERAL_ERROR,
         PIN_INPUT_ERROR,
         ON_NO_INTERNET_CONNECTION;

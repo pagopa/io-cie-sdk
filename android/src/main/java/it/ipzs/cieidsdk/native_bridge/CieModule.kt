@@ -8,7 +8,9 @@ import com.facebook.react.bridge.Arguments.createMap
 import com.facebook.react.bridge.NativeModule
 import com.facebook.react.bridge.NativeModule.NativeMethod
 import it.ipzs.cieidsdk.event.Event
-
+import android.content.Intent
+import android.app.Activity
+import android.net.Uri
 
 class CieModule(reactContext: ReactApplicationContext) : ReactContextBaseJavaModule(reactContext),
     Callback {
@@ -142,8 +144,23 @@ class CieModule(reactContext: ReactApplicationContext) : ReactContextBaseJavaMod
         if (currentActivity == null) {
             callback.invoke("fail to get current activity")
         } else {
-            CieIDSdk.launchCieID(currentActivity)
+            this.launchCieID(currentActivity)
             callback.invoke()
+        }
+    }
+
+    /**
+     * Open CieID application
+     * Use this method when receive CieIDEvent.Card.ON_CARD_PIN_LOCKED. User needs to unlock CIE after 3 pin error.
+     */
+    fun launchCieID(activity: Activity){
+        val cieIdPackage = "it.ipzs.cieid"
+        val launchIntent = activity.getPackageManager().getLaunchIntentForPackage(cieIdPackage);
+        if(launchIntent == null){
+            activity.startActivity(Intent(Intent.ACTION_VIEW).setData(Uri.parse("https://play.google.com/store/apps/details?id=$cieIdPackage")))
+        }
+        else{
+           activity.startActivity(launchIntent) 
         }
     }
 
