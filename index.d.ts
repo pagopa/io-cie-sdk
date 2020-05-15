@@ -93,4 +93,4 @@ declare class CieManager {
   removeAllListeners(): void;
 }
 
-export default cieManager;
+export default new CieManager();
