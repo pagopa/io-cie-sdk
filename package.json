@@ -1,7 +1,7 @@
 {
   "name": "@pagopa/react-native-cie",
-  "version": "0.2.2",
-  "description": "CIE (Carta di Identità Elettronica) module for react native.",
+  "version": "0.1.9",
+  "description": "A CIE (Carta di Identità Elettronica) module for react native. iOS implemementation",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -19,5 +19,11 @@
   "bugs": {
     "url": "https://github.com/pagopa/io-cie-android-sdk/issues"
   },
-  "homepage": "https://github.com/pagopa/io-cie-android-sdk#readme"
+  "homepage": "https://github.com/pagopa/io-cie-android-sdk#readme",
+  "react-native": {
+    "path": "path-browserify"
+  },
+  "browser": {
+    "path": "path-browserify"
+  }
 }
