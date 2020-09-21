@@ -8,7 +8,9 @@
 //
 
 #import "CieModule.h"
-#import <RNNativeCiesdk-Swift.h>
+#import <iociesdkios/iociesdkios.h>
+
+@import iociesdkios;
 
 #define eventChannel @"onEvent"
 #define errorChannel @"onError"
@@ -126,7 +128,10 @@ RCT_EXPORT_METHOD(hasApiLevelSupport:(RCTResponseSenderBlock)callback) {
   callback(@[]);
 }
 
-
++ (BOOL)requiresMainQueueSetup
+{
+    return NO;
+}
 
 //RCT_EXPORT_METHOD(squareMe:(NSString *)number:(RCTResponseSenderBlock)callback) {
 //NSNumber *num = @([number intValue]);

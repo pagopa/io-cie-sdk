@@ -45,6 +45,7 @@ NS_ASSUME_NONNULL_BEGIN
  // non disponibile su iOS
 -(void) hasApiLevelSupport:(RCTResponseSenderBlock)callback;
 
++ (BOOL)requiresMainQueueSetup;
 @end
 
 NS_ASSUME_NONNULL_END
