@@ -32,12 +32,7 @@
   self = [super init];
   if(self)
   {
-    if (@available(iOS 13, *)) {
-      self.cieSDK = [[CIEIDSdk alloc] init];
-    }
-    else {
-      // do nothing
-    }
+    self.cieSDK = [[CIEIDSdk alloc] init];
   }
 
   return self;
@@ -79,16 +74,9 @@ RCT_EXPORT_METHOD(setAuthenticationUrl:(NSString*) url) {
 {
   dispatch_async(dispatch_get_global_queue(0, 0), ^{
 
-    if (@available(iOS 13, *)) {
-  
-      [self.cieSDK postWithUrl:self.url pin:self.PIN completed:^(NSString* error, NSString* response) {
-        callback(error, response);
-      }];
-    }
-    else
-    {
-      callback(@"Funzione non disponibile", nil);
-    }
+    [self.cieSDK postWithUrl:self.url pin:self.PIN completed:^(NSString* error, NSString* response) {
+      callback(error, response);
+    }];
   });
 }
 
