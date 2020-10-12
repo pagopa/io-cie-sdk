@@ -1,13 +1,101 @@
-*.iml
-.gradle
-/local.properties
-/.idea/caches
-/.idea/libraries
-/.idea/modules.xml
-/.idea/workspace.xml
-/.idea/navEditor.xml
-/.idea/assetWizardSettings.xml
+# OSX
+#
 .DS_Store
-/build
-/captures
-.externalNativeBuild
+*.log
+
+# Xcode
+#
+build/
+*.pbxuser
+!default.pbxuser
+*.mode1v3
+!default.mode1v3
+*.mode2v3
+!default.mode2v3
+*.perspectivev3
+!default.perspectivev3
+xcuserdata
+*.xccheckout
+*.moved-aside
+DerivedData
+*.hmap
+*.ipa
+*.xcuserstate
+project.xcworkspace
+
+# CocoaPods
+#
+# We recommend against adding the Pods directory to your .gitignore. However
+# you should judge for yourself, the pros and cons are mentioned at:
+# https://guides.cocoapods.org/using/using-cocoapods.html#should-i-check-the-pods-directory-into-source-control
+#
+Pods/
+
+# Android/IntelliJ
+#
+build/
+.idea
+.gradle
+.history
+local.properties
+*.iml
+Google Play Android Developer-04750d2c0cf8.json
+
+# node.js
+#
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Ignore package-lock since we use yarn
+package-lock.json
+
+# Test js
+/coverage
+
+# App Config
+.env
+
+# BUCK
+buck-out/
+\.buckd/
+*.keystore
+
+# fastlane
+#
+# It is recommended to not store the screenshots in the git repo. Instead, use fastlane to re-generate the
+# screenshots whenever they are needed.
+# For more information about the recommended setup visit:
+# https://docs.fastlane.tools/best-practices/source-control/
+
+*/fastlane/report.xml
+*/fastlane/Preview.html
+*/fastlane/screenshots
+
+# Bundle artifact
+*.jsbundle
+
+# Visual Studio Code settings
+.vscode
+
+# Bundler
+vendor
+
+# MITMProxy
+__pycache__
+
+# Auto generated definitions
+definitions
+
+# Certificates
+**/*.p12
+**/*.pem
+**/*.pkey
+
+# rn-nodeify
+shim.js
+
+# Google services definition
+android/app/google-services.json
+# React native config generated file
+GeneratedDotEnv.m

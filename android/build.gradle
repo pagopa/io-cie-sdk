@@ -1,61 +1,39 @@
-apply plugin: 'com.android.library'
-apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-android-extensions'
-apply plugin: 'maven'
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
 
-android {
-    compileSdkVersion 29
-
-    defaultConfig {
-        minSdkVersion 19
-        targetSdkVersion 29
-        versionCode 2
-        versionName "1.0.1"
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-
-        //ambienti
-        //PRODUZIONE
-        buildConfigField "String", "BASE_URL_IDP", "\"https://idserver.servizicie.interno.gov.it/idp/\""
-        //COLLAUDO
-        //buildConfigField "String", "BASE_URL_IDP", "\"https://preproduzione.idserver.servizicie.interno.gov.it/idp/\""
-
+buildscript {
+    ext {
+        buildToolsVersion = "29.0.2"
+        kotlin_version = '1.3.41'
+        minSdkVersion = 19
+        compileSdkVersion = 29
+        targetSdkVersion = 29
+        supportLibversion = "28.0.0"
     }
-
-    buildTypes {
-        release {
-
-        }
-        debug {
-            debuggable true
-        }
+    repositories {
+        google()
+        jcenter()
+    }
+    dependencies {
+        classpath("com.android.tools.build:gradle:3.5.3")
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
     }
 }
 
+allprojects {
+    repositories {
+        mavenLocal()
+        maven {
+            // All of React Native (JS, Obj-C sources, Android binaries) is installed from npm
+            url("$rootDir/../node_modules/react-native/android")
+        }
+        maven {
+            // Android JSC is installed from npm
+            url("$rootDir/../node_modules/jsc-android/dist")
+        }
 
-ext {
-    okhttp_version = '4.0.1'
-    retrofit_version = '2.6.0'
-    kotlin_version = '1.3.61'
+        google()
+        jcenter()
+        maven { url 'https://www.jitpack.io' }
+    }
 }
-
-dependencies {
-
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-
-    //network
-    implementation "com.squareup.okhttp3:okhttp:$okhttp_version"
-    implementation "com.squareup.okhttp3:logging-interceptor:$okhttp_version"
-    implementation "com.squareup.retrofit2:converter-scalars:$retrofit_version"
-    implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
-    implementation "com.squareup.retrofit2:adapter-rxjava2:$retrofit_version"
-    implementation 'com.squareup.okio:okio:2.4.3'
-
-    //rxjava
-    implementation 'io.reactivex.rxjava2:rxjava:2.2.18'
-    implementation 'io.reactivex.rxjava2:rxandroid:2.1.1'
-
-    implementation 'io.kotlintest:kotlintest:2.0.7'
-    implementation 'com.facebook.react:react-native:+'
-
-}
-
