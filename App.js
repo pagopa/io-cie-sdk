@@ -1,11 +1,12 @@
 import React from 'react';
-import { 
+import {
   View,
   Text,
   TouchableOpacity,
   Platform,
 } from 'react-native';
 import NfcManager, {NfcTech} from 'react-native-nfc-manager';
+import Apdu from './ts/apdu';
 
 class App extends React.Component {
   componentDidMount() {
@@ -19,17 +20,17 @@ class App extends React.Component {
   render() {
     return (
       <View style={{padding: 20}}>
-        
+
         <Text>NFC APDU Protocol Protocol Demo</Text>
-        
-        <TouchableOpacity 
+
+        <TouchableOpacity
           style={{padding: 10, width: 200, margin: 20, borderWidth: 1, borderColor: 'black'}}
           onPress={this._test}
         >
           <Text>Run Test</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity 
+        <TouchableOpacity
           style={{padding: 10, width: 200, margin: 20, borderWidth: 1, borderColor: 'black'}}
           onPress={this._cleanUp}
         >
@@ -55,6 +56,16 @@ class App extends React.Component {
       let tag = await NfcManager.getTag();
       console.warn("Tag: ", tag);
 
+      // Test Case 7816_A_1
+      // Send the following SelectApplication APDU to the e-Passport.
+      // ‘00 A4 04 0C 07 A0 00 00 02 47 10 01'
+      // According to the ICAO recommendation, the P2 denotes "return no file
+      // information", and there is no Le byte present. Therefore, the response data
+      // field MUST be empty. The e-Passport MUST return status bytes ‘90 00’.
+
+      let msg = new Apdu("ciao");
+      console.log("Message", msg.getMessage());
+
       if (Platform.OS === 'ios') {
         // here we assume AID A0000002471001 for ePassport
         // you will need to declare above AID in Info.plist like this:
@@ -77,7 +88,7 @@ class App extends React.Component {
            });
          */
       } else {
-        resp = await NfcManager.transceive([0x00, 0x84]);
+        resp = await NfcManager.transceive([0x00, 0x84, 0x00, 0x00, 0x08]);
       }
       console.warn("Transceive Response: ", resp);
 

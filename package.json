@@ -4,11 +4,30 @@
   "description": "CIE (Carta di Identità Elettronica) module for react native.",
   "main": "index.js",
   "scripts": {
+    "android": "react-native run-android",
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "react": "16.13.1",
+    "react-native": "0.63.2",
+    "react-native-nfc-manager": "^2.2.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.8.4",
+    "@babel/runtime": "^7.8.4",
+    "@react-native-community/eslint-config": "^1.1.0",
+    "babel-jest": "^25.1.0",
+    "eslint": "^6.5.1",
+    "jest": "^25.1.0",
+    "metro-react-native-babel-preset": "^0.61.0",
+    "react-test-renderer": "16.13.1"
+  },
+  "jest": {
+    "preset": "react-native"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/pagopa/io-cie-android-sdk.git"
+    "url": "git+https://github.com/pagopa/io-cie-sdk.git"
   },
   "keywords": [
     "cie",
@@ -17,7 +36,7 @@
   "author": "Matteo Boschi",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/pagopa/io-cie-android-sdk/issues"
+    "url": "https://github.com/pagopa/io-cie-sdk/issues"
   },
-  "homepage": "https://github.com/pagopa/io-cie-android-sdk#readme"
+  "homepage": "https://github.com/pagopa/io-cie-sdk#readme"
 }
