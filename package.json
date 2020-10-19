@@ -19,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/pagopa/io-cie-android-sdk/issues"
   },
-  "homepage": "https://github.com/pagopa/io-cie-android-sdk#readme"
+  "homepage": "https://github.com/pagopa/io-cie-android-sdk#readme",
+  "publishConfig": {
+  "registry":"https://npm.pkg.github.com"
+}
 }
