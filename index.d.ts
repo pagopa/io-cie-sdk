@@ -14,7 +14,11 @@ type CIEEvent =
     | "AUTHENTICATION_ERROR"
     | "ON_NO_INTERNET_CONNECTION"
     | "STOP_NFC_ERROR"
-    | "START_NFC_ERROR";
+    | "START_NFC_ERROR"
+    // iOS dedicated events
+    | "PIN Locked"
+    | "TAG_ERROR_NFC_NOT_SUPPORTED"
+    | "Transmission Error";
 
 export type Event = {
   event: CIEEvent;
