@@ -19,11 +19,5 @@
   "bugs": {
     "url": "https://github.com/pagopa/io-cie-android-sdk/issues"
   },
-  "homepage": "https://github.com/pagopa/io-cie-android-sdk#readme",
-  "react-native": {
-    "path": "path-browserify"
-  },
-  "browser": {
-    "path": "path-browserify"
-  }
+  "homepage": "https://github.com/pagopa/io-cie-android-sdk#readme"
 }
