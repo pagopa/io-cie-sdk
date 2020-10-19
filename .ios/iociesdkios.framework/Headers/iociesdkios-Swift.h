@@ -224,6 +224,7 @@ SWIFT_CLASS("_TtC11iociesdkios11ErrorHelper")
 + (NSString * _Nonnull)decodeCIEErrorWithSw1sw2:(uint16_t)sw1sw2 SWIFT_WARN_UNUSED_RESULT;
 + (NSString * _Nonnull)decodeHTTPErrorWithErr:(uint16_t)err SWIFT_WARN_UNUSED_RESULT;
 + (NSString * _Nonnull)decodeTagSessionErrorWithErr:(uint16_t)err SWIFT_WARN_UNUSED_RESULT;
++ (NSString * _Nonnull)nativeErrorWithErrorMessage:(NSString * _Nonnull)errorMessage SWIFT_WARN_UNUSED_RESULT;
 + (NSString * _Nonnull)decodeErrorWithSw1:(uint8_t)sw1 sw2:(uint8_t)sw2 SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
@@ -467,6 +468,7 @@ SWIFT_CLASS("_TtC11iociesdkios11ErrorHelper")
 + (NSString * _Nonnull)decodeCIEErrorWithSw1sw2:(uint16_t)sw1sw2 SWIFT_WARN_UNUSED_RESULT;
 + (NSString * _Nonnull)decodeHTTPErrorWithErr:(uint16_t)err SWIFT_WARN_UNUSED_RESULT;
 + (NSString * _Nonnull)decodeTagSessionErrorWithErr:(uint16_t)err SWIFT_WARN_UNUSED_RESULT;
++ (NSString * _Nonnull)nativeErrorWithErrorMessage:(NSString * _Nonnull)errorMessage SWIFT_WARN_UNUSED_RESULT;
 + (NSString * _Nonnull)decodeErrorWithSw1:(uint8_t)sw1 sw2:(uint8_t)sw2 SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
