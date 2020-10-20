@@ -14,7 +14,7 @@
 		</data>
 		<key>Headers/iociesdkios-Swift.h</key>
 		<data>
-		XLgqy3pY1sRTT4bpc/cJn154zEM=
+		LVBNn+AMaIlvt8ze1ddYlCCAaY8=
 		</data>
 		<key>Headers/iociesdkios.h</key>
 		<data>
@@ -26,23 +26,23 @@
 		</data>
 		<key>Modules/iociesdkios.swiftmodule/Project/arm.swiftsourceinfo</key>
 		<data>
-		mihYdUpamhDMws5YEXd0L3YxJ/w=
+		tf84hk9trsnOKUoj/Y215KQ13bc=
 		</data>
 		<key>Modules/iociesdkios.swiftmodule/Project/arm64-apple-ios.swiftsourceinfo</key>
 		<data>
-		2NKJ4gj5GJO2J5WFk6V53eqlU9M=
+		eWcwE8c0EaulMaVVGzrodU7Y6Pk=
 		</data>
 		<key>Modules/iociesdkios.swiftmodule/Project/arm64.swiftsourceinfo</key>
 		<data>
-		2NKJ4gj5GJO2J5WFk6V53eqlU9M=
+		eWcwE8c0EaulMaVVGzrodU7Y6Pk=
 		</data>
 		<key>Modules/iociesdkios.swiftmodule/Project/armv7-apple-ios.swiftsourceinfo</key>
 		<data>
-		mihYdUpamhDMws5YEXd0L3YxJ/w=
+		tf84hk9trsnOKUoj/Y215KQ13bc=
 		</data>
 		<key>Modules/iociesdkios.swiftmodule/Project/armv7.swiftsourceinfo</key>
 		<data>
-		mihYdUpamhDMws5YEXd0L3YxJ/w=
+		tf84hk9trsnOKUoj/Y215KQ13bc=
 		</data>
 		<key>Modules/iociesdkios.swiftmodule/arm.swiftdoc</key>
 		<data>
@@ -50,7 +50,7 @@
 		</data>
 		<key>Modules/iociesdkios.swiftmodule/arm.swiftmodule</key>
 		<data>
-		lziqDcBODxCMAzMt0IYsxnOMSSU=
+		21IzFhOJI+XYhMndlm8UBjTye6c=
 		</data>
 		<key>Modules/iociesdkios.swiftmodule/arm64-apple-ios.swiftdoc</key>
 		<data>
@@ -58,7 +58,7 @@
 		</data>
 		<key>Modules/iociesdkios.swiftmodule/arm64-apple-ios.swiftmodule</key>
 		<data>
-		ArDjWp3snj2XNq3JaC7UcIkwC8c=
+		5OlkJNIUdq00ucpRrhMIHPq0ooQ=
 		</data>
 		<key>Modules/iociesdkios.swiftmodule/arm64.swiftdoc</key>
 		<data>
@@ -66,7 +66,7 @@
 		</data>
 		<key>Modules/iociesdkios.swiftmodule/arm64.swiftmodule</key>
 		<data>
-		ArDjWp3snj2XNq3JaC7UcIkwC8c=
+		5OlkJNIUdq00ucpRrhMIHPq0ooQ=
 		</data>
 		<key>Modules/iociesdkios.swiftmodule/armv7-apple-ios.swiftdoc</key>
 		<data>
@@ -74,7 +74,7 @@
 		</data>
 		<key>Modules/iociesdkios.swiftmodule/armv7-apple-ios.swiftmodule</key>
 		<data>
-		lziqDcBODxCMAzMt0IYsxnOMSSU=
+		21IzFhOJI+XYhMndlm8UBjTye6c=
 		</data>
 		<key>Modules/iociesdkios.swiftmodule/armv7.swiftdoc</key>
 		<data>
@@ -82,7 +82,7 @@
 		</data>
 		<key>Modules/iociesdkios.swiftmodule/armv7.swiftmodule</key>
 		<data>
-		lziqDcBODxCMAzMt0IYsxnOMSSU=
+		21IzFhOJI+XYhMndlm8UBjTye6c=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -569,11 +569,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			XLgqy3pY1sRTT4bpc/cJn154zEM=
+			LVBNn+AMaIlvt8ze1ddYlCCAaY8=
 			</data>
 			<key>hash2</key>
 			<data>
-			+pLPDTNB36XLwiZCHKiIOO0FV8RRQ+0f8Kuvf6VND+k=
+			dn64SzEmV82jqAmSstX3cJuVsQBPFPrvrZswb92wrts=
 			</data>
 		</dict>
 		<key>Headers/iociesdkios.h</key>
@@ -591,55 +591,55 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			mihYdUpamhDMws5YEXd0L3YxJ/w=
+			tf84hk9trsnOKUoj/Y215KQ13bc=
 			</data>
 			<key>hash2</key>
 			<data>
-			tczApw81YhOc/2w+PyO0vC3Yf+ge1STyCblHt1mcFk4=
+			ZoLsL4Fzk3zgdZSLAUx0SR+GEPQTyYOhDb+/Q1E2O9Q=
 			</data>
 		</dict>
 		<key>Modules/iociesdkios.swiftmodule/Project/arm64-apple-ios.swiftsourceinfo</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			2NKJ4gj5GJO2J5WFk6V53eqlU9M=
+			eWcwE8c0EaulMaVVGzrodU7Y6Pk=
 			</data>
 			<key>hash2</key>
 			<data>
-			G7IIAn4W211w3YwmmW5D5WfioSc1aKVkMCIujOFUalY=
+			KvrBcs3fa70DrZct9pb2II8hyWkJGvXMA47bfvXByI0=
 			</data>
 		</dict>
 		<key>Modules/iociesdkios.swiftmodule/Project/arm64.swiftsourceinfo</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			2NKJ4gj5GJO2J5WFk6V53eqlU9M=
+			eWcwE8c0EaulMaVVGzrodU7Y6Pk=
 			</data>
 			<key>hash2</key>
 			<data>
-			G7IIAn4W211w3YwmmW5D5WfioSc1aKVkMCIujOFUalY=
+			KvrBcs3fa70DrZct9pb2II8hyWkJGvXMA47bfvXByI0=
 			</data>
 		</dict>
 		<key>Modules/iociesdkios.swiftmodule/Project/armv7-apple-ios.swiftsourceinfo</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			mihYdUpamhDMws5YEXd0L3YxJ/w=
+			tf84hk9trsnOKUoj/Y215KQ13bc=
 			</data>
 			<key>hash2</key>
 			<data>
-			tczApw81YhOc/2w+PyO0vC3Yf+ge1STyCblHt1mcFk4=
+			ZoLsL4Fzk3zgdZSLAUx0SR+GEPQTyYOhDb+/Q1E2O9Q=
 			</data>
 		</dict>
 		<key>Modules/iociesdkios.swiftmodule/Project/armv7.swiftsourceinfo</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			mihYdUpamhDMws5YEXd0L3YxJ/w=
+			tf84hk9trsnOKUoj/Y215KQ13bc=
 			</data>
 			<key>hash2</key>
 			<data>
-			tczApw81YhOc/2w+PyO0vC3Yf+ge1STyCblHt1mcFk4=
+			ZoLsL4Fzk3zgdZSLAUx0SR+GEPQTyYOhDb+/Q1E2O9Q=
 			</data>
 		</dict>
 		<key>Modules/iociesdkios.swiftmodule/arm.swiftdoc</key>
@@ -657,11 +657,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			lziqDcBODxCMAzMt0IYsxnOMSSU=
+			21IzFhOJI+XYhMndlm8UBjTye6c=
 			</data>
 			<key>hash2</key>
 			<data>
-			RScSdlhdQ4Qn2AYXqlUDc5VeSn0cQUMo7oIDEUVnJ5g=
+			nlr+IE2eIsLHXW4e3OlCbDpGGZw8zuH0QmBm9HWzZZY=
 			</data>
 		</dict>
 		<key>Modules/iociesdkios.swiftmodule/arm64-apple-ios.swiftdoc</key>
@@ -679,11 +679,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			ArDjWp3snj2XNq3JaC7UcIkwC8c=
+			5OlkJNIUdq00ucpRrhMIHPq0ooQ=
 			</data>
 			<key>hash2</key>
 			<data>
-			rr2rBG+5GR5XgPhsYzdIjYKSnU9NydSawn5+Ec2pfD0=
+			OoYwMgytIB5fTcqO/EGbJKAhx10Uhf46VKKAen1dzck=
 			</data>
 		</dict>
 		<key>Modules/iociesdkios.swiftmodule/arm64.swiftdoc</key>
@@ -701,11 +701,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			ArDjWp3snj2XNq3JaC7UcIkwC8c=
+			5OlkJNIUdq00ucpRrhMIHPq0ooQ=
 			</data>
 			<key>hash2</key>
 			<data>
-			rr2rBG+5GR5XgPhsYzdIjYKSnU9NydSawn5+Ec2pfD0=
+			OoYwMgytIB5fTcqO/EGbJKAhx10Uhf46VKKAen1dzck=
 			</data>
 		</dict>
 		<key>Modules/iociesdkios.swiftmodule/armv7-apple-ios.swiftdoc</key>
@@ -723,11 +723,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			lziqDcBODxCMAzMt0IYsxnOMSSU=
+			21IzFhOJI+XYhMndlm8UBjTye6c=
 			</data>
 			<key>hash2</key>
 			<data>
-			RScSdlhdQ4Qn2AYXqlUDc5VeSn0cQUMo7oIDEUVnJ5g=
+			nlr+IE2eIsLHXW4e3OlCbDpGGZw8zuH0QmBm9HWzZZY=
 			</data>
 		</dict>
 		<key>Modules/iociesdkios.swiftmodule/armv7.swiftdoc</key>
@@ -745,11 +745,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			lziqDcBODxCMAzMt0IYsxnOMSSU=
+			21IzFhOJI+XYhMndlm8UBjTye6c=
 			</data>
 			<key>hash2</key>
 			<data>
-			RScSdlhdQ4Qn2AYXqlUDc5VeSn0cQUMo7oIDEUVnJ5g=
+			nlr+IE2eIsLHXW4e3OlCbDpGGZw8zuH0QmBm9HWzZZY=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>

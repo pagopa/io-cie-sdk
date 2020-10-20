@@ -49,7 +49,8 @@ RCT_EXPORT_METHOD(isNFCEnabled:(RCTResponseSenderBlock)callback) {
 }
 
 RCT_EXPORT_METHOD(hasNFCFeature:(RCTResponseSenderBlock)callback) {
-  callback(@[@YES]);
+    BOOL value = [self.cieSDK hasNFCFeature];
+    callback(@[[NSNumber numberWithBool:value]]);
 }
 
 RCT_EXPORT_METHOD(setPin:(NSString*) pin) {
