@@ -26,23 +26,23 @@
 		</data>
 		<key>Modules/iociesdkios.swiftmodule/Project/arm.swiftsourceinfo</key>
 		<data>
-		5NyLvTtpm7NboB92ioz5X0LRbAw=
+		1Gwc9YL17ad34tFwa8gLCyi6oE4=
 		</data>
 		<key>Modules/iociesdkios.swiftmodule/Project/arm64-apple-ios.swiftsourceinfo</key>
 		<data>
-		lRjAZNkZAfng/fSFFZ8zCJucrG4=
+		648tYmXtyFbloG/VrT9VVezy/A0=
 		</data>
 		<key>Modules/iociesdkios.swiftmodule/Project/arm64.swiftsourceinfo</key>
 		<data>
-		lRjAZNkZAfng/fSFFZ8zCJucrG4=
+		648tYmXtyFbloG/VrT9VVezy/A0=
 		</data>
 		<key>Modules/iociesdkios.swiftmodule/Project/armv7-apple-ios.swiftsourceinfo</key>
 		<data>
-		5NyLvTtpm7NboB92ioz5X0LRbAw=
+		1Gwc9YL17ad34tFwa8gLCyi6oE4=
 		</data>
 		<key>Modules/iociesdkios.swiftmodule/Project/armv7.swiftsourceinfo</key>
 		<data>
-		5NyLvTtpm7NboB92ioz5X0LRbAw=
+		1Gwc9YL17ad34tFwa8gLCyi6oE4=
 		</data>
 		<key>Modules/iociesdkios.swiftmodule/arm.swiftdoc</key>
 		<data>
@@ -591,55 +591,55 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			5NyLvTtpm7NboB92ioz5X0LRbAw=
+			1Gwc9YL17ad34tFwa8gLCyi6oE4=
 			</data>
 			<key>hash2</key>
 			<data>
-			2cvH7iLRIjIjq4pfkhWvoygid+yGCEsjfwMkWVTBAoM=
+			u9D2okJNV5S/cZbJE8hFr0bzxWYtPfCGw0VIAkOoV6g=
 			</data>
 		</dict>
 		<key>Modules/iociesdkios.swiftmodule/Project/arm64-apple-ios.swiftsourceinfo</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			lRjAZNkZAfng/fSFFZ8zCJucrG4=
+			648tYmXtyFbloG/VrT9VVezy/A0=
 			</data>
 			<key>hash2</key>
 			<data>
-			X1q844DJ3FQ9fvVs+4GBoNGtJEAykQ+wGmdDZNP0GLM=
+			d2NIVew+Cwrc++PlEg99u/wK0GsMVhqFMH68WXIfl+0=
 			</data>
 		</dict>
 		<key>Modules/iociesdkios.swiftmodule/Project/arm64.swiftsourceinfo</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			lRjAZNkZAfng/fSFFZ8zCJucrG4=
+			648tYmXtyFbloG/VrT9VVezy/A0=
 			</data>
 			<key>hash2</key>
 			<data>
-			X1q844DJ3FQ9fvVs+4GBoNGtJEAykQ+wGmdDZNP0GLM=
+			d2NIVew+Cwrc++PlEg99u/wK0GsMVhqFMH68WXIfl+0=
 			</data>
 		</dict>
 		<key>Modules/iociesdkios.swiftmodule/Project/armv7-apple-ios.swiftsourceinfo</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			5NyLvTtpm7NboB92ioz5X0LRbAw=
+			1Gwc9YL17ad34tFwa8gLCyi6oE4=
 			</data>
 			<key>hash2</key>
 			<data>
-			2cvH7iLRIjIjq4pfkhWvoygid+yGCEsjfwMkWVTBAoM=
+			u9D2okJNV5S/cZbJE8hFr0bzxWYtPfCGw0VIAkOoV6g=
 			</data>
 		</dict>
 		<key>Modules/iociesdkios.swiftmodule/Project/armv7.swiftsourceinfo</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			5NyLvTtpm7NboB92ioz5X0LRbAw=
+			1Gwc9YL17ad34tFwa8gLCyi6oE4=
 			</data>
 			<key>hash2</key>
 			<data>
-			2cvH7iLRIjIjq4pfkhWvoygid+yGCEsjfwMkWVTBAoM=
+			u9D2okJNV5S/cZbJE8hFr0bzxWYtPfCGw0VIAkOoV6g=
 			</data>
 		</dict>
 		<key>Modules/iociesdkios.swiftmodule/arm.swiftdoc</key>
