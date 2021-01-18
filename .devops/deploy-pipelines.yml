@@ -91,10 +91,6 @@ stages:
               #  ex: Build.SourceBranch=refs/tags/v1.2.3-RELEASE --> v1.2.3-RELEASE
               gitReference: ${ gitReference }
 
-          - script: |
-              yarn pack
-            displayName: 'Pack'
-
           - task: CopyFiles@2
             inputs:
               SourceFolder: '$(System.DefaultWorkingDirectory)'
@@ -105,7 +101,8 @@ stages:
                 LICENSE
                 CHANGELOG.md
                 package.json
-                lib/*
+                .ios/*
+                android/*
             displayName: 'Copy bundle files'
           
           - publish: $(System.DefaultWorkingDirectory)/bundle
