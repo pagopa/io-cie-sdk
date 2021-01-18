@@ -4,7 +4,9 @@
   "description": "CIE (Carta di Identità Elettronica) module for react native.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "preversion": "auto-changelog  --config .auto-changelog.json --unreleased --commit-limit false --stdout --template preview.hbs",
+    "version": "auto-changelog -p --config .auto-changelog.json --unreleased && git add CHANGELOG.md"
   },
   "repository": {
     "type": "git",
@@ -20,7 +22,11 @@
     "url": "https://github.com/pagopa/io-cie-android-sdk/issues"
   },
   "homepage": "https://github.com/pagopa/io-cie-android-sdk#readme",
-  "publishConfig": { 
-     "registry": "https://npm.pkg.github.com/" 
- }
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/",
+    "access": "public"
+  },
+  "devDependencies": {
+    "auto-changelog": "^2.2.1"
+  }
 }
