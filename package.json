@@ -28,6 +28,7 @@
   },
   "devDependencies": {
     "auto-changelog": "^2.2.1",
+    "danger": "^10.6.0",
     "danger-plugin-digitalcitizenship": "^1.0.0"
   }
 }
