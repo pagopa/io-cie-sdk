@@ -25,5 +25,9 @@
   "devDependencies": {
     "auto-changelog": "^2.2.1",
     "danger-plugin-digitalcitizenship": "^1.0.0"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/",
+    "access": "public"
   }
 }
