@@ -22,13 +22,13 @@
     "url": "https://github.com/pagopa/io-cie-android-sdk/issues"
   },
   "homepage": "https://github.com/pagopa/io-cie-android-sdk#readme",
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com/",
-    "access": "public"
-  },
   "devDependencies": {
     "auto-changelog": "^2.2.1",
     "danger": "^10.6.0",
     "danger-plugin-digitalcitizenship": "^1.0.0"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/",
+    "access": "public"
   }
 }
