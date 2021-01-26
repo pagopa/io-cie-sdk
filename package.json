@@ -1,6 +1,6 @@
 {
   "name": "@pagopa/react-native-cie",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "CIE (Carta di Identità Elettronica) module for react native.",
   "main": "index.js",
   "types": "index.d.ts",
