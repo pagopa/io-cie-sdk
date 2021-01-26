@@ -103,6 +103,9 @@ stages:
                 package.json
                 .ios/*
                 android/*
+                index.js
+                index.d.ts
+                .react-native-cie.podspec
             displayName: 'Copy bundle files'
           
           - publish: $(System.DefaultWorkingDirectory)/bundle
