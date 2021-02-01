@@ -101,8 +101,8 @@ stages:
                 LICENSE
                 CHANGELOG.md
                 package.json
-                .ios/*
-                android/*
+                .ios/**/*
+                android/**/*
                 index.js
                 index.d.ts
                 .react-native-cie.podspec

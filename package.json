@@ -4,6 +4,13 @@
   "description": "CIE (Carta di Identità Elettronica) module for react native.",
   "main": "index.js",
   "types": "index.d.ts",
+  "files": [
+    ".ios/**/*",
+    "android/**/*",
+    "index.js",
+    "index.d.ts",
+    ".react-native-cie.podspec"
+  ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "preversion": "auto-changelog  --config .auto-changelog.json --unreleased --commit-limit false --stdout --template preview.hbs",
