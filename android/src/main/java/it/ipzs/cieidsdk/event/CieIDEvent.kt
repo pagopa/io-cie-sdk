@@ -22,6 +22,11 @@ interface  EventEnum
         CERTIFICATE_REVOKED;
 
     }
+
+    enum class EventSmartphone : EventEnum {
+        EXTENDED_APDU_NOT_SUPPORTED
+    }
+
     enum class EventError : EventEnum {
         //error
         AUTHENTICATION_ERROR,
