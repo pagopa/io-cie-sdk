@@ -15,6 +15,7 @@ type CIEEvent =
     | "ON_NO_INTERNET_CONNECTION"
     | "STOP_NFC_ERROR"
     | "START_NFC_ERROR"
+    | "EXTENDED_APDU_NOT_SUPPORTED"
     // iOS dedicated events
     | "PIN Locked"
     | "TAG_ERROR_NFC_NOT_SUPPORTED"
