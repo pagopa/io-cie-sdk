@@ -44,6 +44,7 @@ dependencies {
     implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
     implementation "com.squareup.retrofit2:adapter-rxjava2:$retrofit_version"
     implementation 'com.squareup.okio:okio:2.4.3'
+    implementation 'io.kotlintest:kotlintest:2.0.7'
 
     //rxjava
     implementation 'io.reactivex.rxjava2:rxjava:2.2.18'
