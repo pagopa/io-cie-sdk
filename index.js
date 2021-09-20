@@ -3,7 +3,7 @@ import { NativeEventEmitter, NativeModules, Platform } from "react-native";
 
 const NativeCie = Platform.OS === "ios" ? NativeModules.CieModule : NativeModules.NativeCieModule;
 
-const isIosDeviceCompatible = NativeCie && Platform.OS === "ios" && parseInt(Platform.Version, 10) >= 13;
+const isIosDeviceCompatible = NativeCie !== null && Platform.OS === "ios" && parseInt(Platform.Version, 10) >= 13;
 
 class CieManager {
   constructor() {
