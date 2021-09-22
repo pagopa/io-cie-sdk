@@ -76,6 +76,11 @@ object CieIDSdk : NfcAdapter.ReaderCallback {
             put(IdpService.generaCodice, "1")
         }
 
+        RxJavaPlugins.setErrorHandler { error -> run {
+            CieIDSdkLogger.log("error handled by RxJavaPlugins $error")
+            callback?.onError(error)
+        } }
+
         idpService.callIdp(mapValues).subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribeWith(object :
