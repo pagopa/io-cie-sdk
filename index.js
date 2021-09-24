@@ -85,6 +85,15 @@ class CieManager {
     });
   };
 
+  setAlertMessage = (key, value) => {
+    if (Platform.OS === "ios") {
+      if(!isIosDeviceCompatible){
+        return;
+      }
+      NativeCie.setAlertMessage(key, value);
+    }
+  }
+
   setAuthenticationUrl = url => {
     if (Platform.OS === "ios") {
         if(!isIosDeviceCompatible){
