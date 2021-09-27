@@ -91,7 +91,7 @@ declare class CieManager {
    */
   setPin(pin: string): Promise<void>;
 
-  start(): Promise<void>;
+  start(alertMessagesConfig?: Partial<Record<iOSAlertMessageKeys, string>>): Promise<void>;
 
   /**
    * command CIE SDK to start reading/writing CIE CARD
