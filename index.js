@@ -86,10 +86,7 @@ class CieManager {
   };
 
   setAlertMessage = (key, value) => {
-    if (Platform.OS === "ios") {
-      if(!isIosDeviceCompatible){
-        return;
-      }
+    if(isIosDeviceCompatible) {
       NativeCie.setAlertMessage(key, value);
     }
   }
