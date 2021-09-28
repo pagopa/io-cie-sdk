@@ -66,6 +66,10 @@ RCT_EXPORT_METHOD(setAuthenticationUrl:(NSString*) url) {
   self.url = url;
 }
 
+RCT_EXPORT_METHOD(setAlertMessage:(NSString*)key withValue:(NSString*)value) {
+    [self.cieSDK setAlertMessageWithKey:key value:value];
+}
+
 - (NSString*) getAuthenticationUrl
 {
   return self.url;

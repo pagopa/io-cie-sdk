@@ -85,6 +85,12 @@ class CieManager {
     });
   };
 
+  setAlertMessage = (key, value) => {
+    if(isIosDeviceCompatible) {
+      NativeCie.setAlertMessage(key, value);
+    }
+  }
+
   setAuthenticationUrl = url => {
     if (Platform.OS === "ios") {
         if(!isIosDeviceCompatible){
@@ -96,10 +102,13 @@ class CieManager {
     NativeCie.setAuthenticationUrl(url);
   };
 
-  start = () => {
+  start = (config) => {
     if (Platform.OS === "ios") {
         if(!isIosDeviceCompatible){
             return Promise.reject("not compatibile");
+        }
+        if(config !== undefined){
+          Object.entries(config).forEach(kv => NativeCie.setAlertMessage(kv[0],kv[1]))
         }
     }
     return new Promise((resolve, reject) => {

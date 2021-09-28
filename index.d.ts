@@ -21,6 +21,17 @@ type CIEEvent =
     | "TAG_ERROR_NFC_NOT_SUPPORTED"
     | "Transmission Error";
 
+type iOSAlertMessageKeys =
+  "readingInstructions"|
+  "moreTags"|
+  "readingInProgress"|
+  "readingSuccess"|
+  "invalidCard"|
+  "tagLost"|
+  "cardLocked"|
+  "wrongPin1AttemptLeft"|
+  "wrongPin2AttemptLeft";
+
 export type Event = {
   event: CIEEvent;
   attemptsLeft: number;
@@ -80,7 +91,7 @@ declare class CieManager {
    */
   setPin(pin: string): Promise<void>;
 
-  start(): Promise<void>;
+  start(alertMessagesConfig?: Partial<Record<iOSAlertMessageKeys, string>>): Promise<void>;
 
   /**
    * command CIE SDK to start reading/writing CIE CARD
@@ -96,6 +107,12 @@ declare class CieManager {
    * Remove all events callbacks: onEvent / onError / onSuccess
    */
   removeAllListeners(): void;
+
+  /**
+   * only iOS.
+   * customize the info and error messages shown on NFC reading card alert
+   */
+  setAlertMessage(key: iOSAlertMessageKeys, value: string): void;
 }
 
 export default new CieManager();
