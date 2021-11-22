@@ -4,7 +4,7 @@
 </p>
 
 - [Italiano](#italiano)
-- [Inglese](#english)
+- [English](#english)
 
 # Italiano
 Questo repository contiene il porting per React Native (eseguito dal team di <a href="https://github.com/pagopa/io-app">IO</a>) dell'SDK sviluppato da IPZS (<a href="https://docs.italia.it/italia/cie/cie-manuale-tecnico-docs/it/master/cieIDSDK.html">disponibile qui</a>)
