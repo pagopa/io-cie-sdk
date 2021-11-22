@@ -3,12 +3,14 @@
   IO - The public services app
 </p>
 
-# React-Native-Cie
+- [Italiano](#italiano)
+- [Inglese](#english)
+
+# Italiano
 Questo repository contiene il porting per React Native (eseguito dal team di <a href="https://github.com/pagopa/io-app">IO</a>) dell'SDK sviluppato da IPZS (<a href="https://docs.italia.it/italia/cie/cie-manuale-tecnico-docs/it/master/cieIDSDK.html">disponibile qui</a>)
 <br />
 
-
-## Per iniziare
+## Installazione
 
 Per utilizzare la libreria nel tuo progetto:
 
@@ -84,7 +86,6 @@ E' possibile trovare <a href="https://github.com/pagopa/io-cie-sdk/blob/master/i
 | `onEvent(callback: (event: Event) => void)` | `void` | Callback eseguita ad ogni evento di lettura/scrittura |
 | `onError(callback: (error: Error) => void)` | `void` | Callback eseguita ad ogni errore di lettura/scrittura |
 | `onSuccess(callback: (url: string) => void)` | `void` | Callback eseguita in caso di success |
-| `onSuccess(callback: (url: string) => void)` | `void` | Callback eseguita in caso di success |
 
 ## Possibili errori
 Durante la lettura dell'NFC, i possibili errori sono i seguenti
@@ -107,3 +108,111 @@ Durante la lettura dell'NFC, i possibili errori sono i seguenti
 | `START_NFC_ERROR` | Errore durante lo start della lettura NFC |
 | `EXTENDED_APDU_NOT_SUPPORTED` | Il dispositivo non supporta una caratteristica della lettura della CIE |
 | `Transmission Error` | (iOS) Errore durante la trasmissione NFC |
+
+
+
+
+
+
+# English
+This repository contains the React Native library for <a href="https://docs.italia.it/italia/cie/cie-manuale-tecnico-docs/it/master/cieIDSDK.html">CIE integration</a>, written by <a href="https://github.com/pagopa/io-app">IO</a>
+<br />
+
+## Installation
+
+To use the library in your project
+
+```bash
+npm install @pagopa/react-native-cie --save
+```
+
+The login with CIE works only with NFC (hardware tecnology).
+<br />
+On iOS, the code that implements this tecnology isn't available on simulator, so it's not possible to build the project.
+
+To solve this issue, you can rename the ios folder into .ios. After that, ReactNative has no more visibility on the iOS part and the build goes well.
+
+If you want, you can use these commands to enable o disable the compiling phase.<br /><br />
+**Enable**
+```bash
+mv node_modules/@pagopa/react-native-cie/.ios node_modules/@pagopa/react-native-cie/ios 
+mv node_modules/@pagopa/react-native-cie/.react-native-cie.podspec node_modules/@pagopa/react-native-cie/react-native-cie.podspec 
+cd ios 
+pod install
+```
+**Disable**
+```bash
+mv node_modules/@pagopa/react-native-cie/ios node_modules/@pagopa/react-native-cie/.ios
+mv node_modules/@pagopa/react-native-cie/react-native-cie.podspec node_modules/@pagopa/react-native-cie/.react-native-cie.podspec
+cd ios
+rm -rf Pods
+pod install
+```
+
+
+## Compatibility
+Note that not all the devices can allow the CIE login. This library provides you the methods to check that.
+
+### Android
+On Android, is mandatory to check if the device has the NFC feature and the minimum version for the API (>= 23).
+<br />
+Recently, it was discovered a new issue. Some vendors are disabling a feature called <strong>software extended APDU</strong>. This feature disable the writing/reading through the NFC.<br />
+Unfortunately, it's not possible to determinate this possibility at beginning, but it's possible to handle the error returned by the SDK while reading the CIE.
+
+### iOS
+On iOS, the NFC feature is available on all the device with iOS >=13.
+
+
+## Usage
+To provide the CIE authentication, 3 components are required:
+- Authentication URI;
+- CIE pin;
+- the physical CIE to read;
+
+It's up to you to get this components.
+<br />
+To use the library, just import it!
+```ts
+import cieManager from "@pagopa/react-native-cie";
+```
+Now you have access to all the methods.
+
+## API 
+A summary of some functionalities are written below, but you can find more <a href="https://github.com/pagopa/io-cie-sdk/blob/master/index.d.ts">here</a>.
+
+| Function | Return | Desciption |
+| :-------- | :------- | :------------------------- |
+| `hasApiLevelSupport()` | `Promise<boolean>` | (Android) Check if OS has the minimum Api version |
+| `hasNFCFeature()` | `Promise<boolean>` | Check if the device has the NFC |
+| `setPin(pin: string)` | `Promise<void>` | Set the pin of the CIE|
+| `setAuthenticationUrl(url: string)` | `Promise<void>` | Set the Authentication Url |
+| `start(alertMessagesConfig?: Partial<Record<iOSAlertMessageKeys, string>>)` | `Promise<void>` | Start the SDK |
+| `startListeningNFC()` | `Promise<void>` | (Android) Start the reading from the NFC |
+| `stopListeningNFC()` | `Promise<void>` | (Android) Stop the reading from the NFC |
+| `openNFCSettings()` | `Promise<void>` | (Android) Open the OS Settings for the NFC |
+| `onEvent(callback: (event: Event) => void)` | `void` | Callback after any events of reading/writing |
+| `onError(callback: (error: Error) => void)` | `void` | Callback after any errors of reading/writing|
+| `onSuccess(callback: (url: string) => void)` | `void` | Success Callback |
+
+## Handle errors
+You can handle the errors that happens while reading the NFC.
+
+| Error code | Description |
+| :-------- | :------------------------- |
+| `ON_TAG_DISCOVERED_NOT_CIE` | (Android) The card is not a CIE  |
+| `TAG_ERROR_NFC_NOT_SUPPORTED` | (iOS) The card is not a CIE |
+| `ON_TAG_DISCOVERED` | A tag is discovered. |
+| `ON_TAG_LOST` | A tag is lost |
+| `ON_CARD_PIN_LOCKED` | (Android) The CIE is locked because of too many insert of wrong PIN |
+| `PIN Locked` | (iOS) The CIE is locked because of too many insert of wrong PIN |
+| `ON_PIN_ERROR` | Wrong PIN. The error returns also the remaining attempts number |
+| `PIN_INPUT_ERROR` | Wrong format for the PIN. It must be 8 numeric characters|
+| `CERTIFICATE_EXPIRED` | Expired CIE |
+| `CERTIFICATE_REVOKED` | Revoked CIE |
+| `AUTHENTICATION_ERROR` | Authentication error during the communication with Government server|
+| `ON_NO_INTERNET_CONNECTION` | No Internet connection |
+| `STOP_NFC_ERROR` | Error while stopping the NFC reading |
+| `START_NFC_ERROR` | Error while starting the NFC reading |
+| `EXTENDED_APDU_NOT_SUPPORTED` | The device cannot read the CIE |
+| `Transmission Error` | (iOS) Generic Error |
+
