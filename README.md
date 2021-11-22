@@ -95,7 +95,7 @@ Durante la lettura dell'NFC, i possibili errori sono i seguenti
 | `ON_TAG_DISCOVERED_NOT_CIE` | (Android) La carta letta non è una CIE |
 | `TAG_ERROR_NFC_NOT_SUPPORTED` | (iOS) La carta letta non è una CIE |
 | `ON_TAG_DISCOVERED` | E' stato riconosciuto un tag |
-| `ON_TAG_LOST` | Tag perso |
+| `ON_TAG_LOST` | Tag rimosso / allontanato |
 | `ON_CARD_PIN_LOCKED` | (Android) Troppi inserimenti errati del PIN, che risulta bloccato |
 | `PIN Locked` | (iOS) Troppi inserimenti errati del PIN, che risulta bloccato |
 | `ON_PIN_ERROR` | Pin errato. L'evento restituisce anche il numero di tentativi rimasti |
