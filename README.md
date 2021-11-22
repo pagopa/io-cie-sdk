@@ -22,7 +22,7 @@ La login con CIE può essere effettuata esclusivamente tramite tecnologia NFC (t
 <br />
 Su iOS, il codice che implementa la tecnologia non è disponibile sul simulatore, rendendo impossibile la build.
 
-Per superare il problema, è necessario rinominare la cartella ios in .ios. In questo modo, ReactNative non ha visibilità del codice iOS e la build va a buon fine.
+Per superare il problema, è necessario rinominare la cartella `ios` in `.ios`. In questo modo, React Native non ha visibilità del codice iOS e la build va a buon fine.
 
 Per facilitare questo passaggio e abilitare la compilazione della libreria (lanciando la build da un device reale), è stato definito il comando:
 ```bash
