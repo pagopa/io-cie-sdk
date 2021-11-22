@@ -87,7 +87,7 @@ E' possibile trovare <a href="https://github.com/pagopa/io-cie-sdk/blob/master/i
 | `onError(callback: (error: Error) => void)` | `void` | Callback eseguita ad ogni errore di lettura/scrittura |
 | `onSuccess(callback: (url: string) => void)` | `void` | Callback eseguita in caso di success |
 
-## Possibili errori
+## Possibili eventi
 Durante la lettura dell'NFC, i possibili errori sono i seguenti
 
 | Error code | Descrizione |
