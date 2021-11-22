@@ -43,7 +43,7 @@ pod install
 
 
 ## Compatibilità
-Non tutti i device possono permettere la login con CIE. La libreria espone dei metodi per gestire le varie possibilità
+Non tutti i device sono compatibili con la login tramite CIE. La libreria espone dei metodi per sapere se il dispositivo è compatibile oppure no
 
 ### Android
 Su Android, è necessario verificare la presenza dell'NFC, oltre che della versione minima dell'API (>= 23).
