@@ -94,7 +94,7 @@ declare class CieManager {
    * set a custom IdP url, leave it empty to use the default one
    * @param idpUrl the cutom IdP url
    */
-  setCustomIdpUrl(idpUrl: string): void;
+  setCustomIdpUrl(idpUrl: string?): void;
 
   setAuthenticationUrl(url: string): void;
 
