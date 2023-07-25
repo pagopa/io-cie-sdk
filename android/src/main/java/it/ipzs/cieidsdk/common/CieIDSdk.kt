@@ -93,19 +93,22 @@ object CieIDSdk : NfcAdapter.ReaderCallback {
                         val responseBody = idpResponse.body()
                         CieIDSdkLogger.log("$responseBody")
                         if (responseBody != null) {
-                        val responseString = responseBody.string()
-                        val responseParts = responseString.split(":".toRegex()).dropLastWhile { it.isEmpty() }.toTypedArray()
-                        if (responseParts.size >= 2) {
+                          val responseString = responseBody.string()
+                          val responseParts =
+                            responseString.split(":".toRegex()).dropLastWhile { it.isEmpty() }
+                              .toTypedArray()
+                          if (responseParts.size >= 2) {
                             val serverCode = responseParts[1]
                             if (!checkCodiceServer(serverCode)) {
-                            callback?.onEvent(Event(EventError.GENERAL_ERROR))
+                              callback?.onEvent(Event(EventError.GENERAL_ERROR))
                             }
                             val url =
-                            "${deepLinkInfo.nextUrl}?${deepLinkInfo.name}=${deepLinkInfo.value}&login=1&codice=$serverCode"
+                              "${deepLinkInfo.nextUrl}?${deepLinkInfo.name}=${deepLinkInfo.value}&login=1&codice=$serverCode"
                             callback?.onSuccess(url)
-                        } else {
+                          } else {
                             CieIDSdkLogger.log("Missing server code")
                             callback?.onEvent(Event(EventError.AUTHENTICATION_ERROR))
+                          }
                         }
                     } else {
                         CieIDSdkLogger.log("onError")
