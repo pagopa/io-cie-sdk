@@ -91,10 +91,10 @@ declare class CieManager {
   enableLog(isEnabled: boolean): void;
 
   /**
-   * set the development environment url, leave it empty to use the production environment
-   * @param devUrl the development environment url
+   * set a custom IdP url, leave it empty to use the default one
+   * @param idpUrl the cutom IdP url
    */
-  setDevelopmentEnvironmentUrl(devUrl: string): void;
+  setCustomIdpUrl(idpUrl: string): void;
 
   setAuthenticationUrl(url: string): void;
 

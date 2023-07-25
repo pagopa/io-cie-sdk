@@ -50,7 +50,7 @@ object CieIDSdk : NfcAdapter.ReaderCallback {
     private var callback: Callback? = null
     internal var deepLinkInfo: DeepLinkInfo = DeepLinkInfo()
     internal var ias: Ias? = null
-    private var developmentEnvironmentUrl: String? = null
+    private var idpUrl: String? = null
     internal var enableLog: Boolean = false
     private var ciePin = ""
     // the timeout of transceive(byte[]) in milliseconds (https://developer.android.com/reference/android/nfc/tech/IsoDep#setTimeout(int))
@@ -283,8 +283,8 @@ object CieIDSdk : NfcAdapter.ReaderCallback {
         this.enableLog = isEnabled
     }
 
-    fun setDevelopmentEnvironmentUrl(developmentEnvironmentUrl: String?) {
-        this.developmentEnvironmentUrl = developmentEnvironmentUrl
+    fun setCustomIdpUrl(idpUrl: String?) {
+        this.idpUrl = idpUrl
     }
 
 }

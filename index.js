@@ -100,13 +100,13 @@ class CieManager {
     NativeCie.enableLog(isEnable);    
   }
     
-  setDevelopmentEnvironmentUrl = devUrl => {
+  setCustomIdpUrl = idpUrl => {
     if (Platform.OS === "ios") {
       if(!isIosDeviceCompatible) {
           return;
       }        
     }
-    NativeCie.setDevelopmentEnvironmentUrl(devUrl);
+    NativeCie.setCustomIdpUrl(idpUrl);
   }
 
   setAuthenticationUrl = url => {

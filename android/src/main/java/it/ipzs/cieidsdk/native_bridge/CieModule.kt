@@ -102,10 +102,10 @@ class CieModule(reactContext: ReactApplicationContext) : ReactContextBaseJavaMod
     }
 
     @ReactMethod
-    fun setDevelopmentEnvironmentUrl(
-        developmentEnvironmentUrl: String?
+    fun setCustomIdpUrl(
+        idpUrl: String?
     ) {
-        CieIDSdk.setDevelopmentEnvironmentUrl(developmentEnvironmentUrl)
+        CieIDSdk.setCustomIdpUrl(idpUrl)
     }
 
     @ReactMethod
