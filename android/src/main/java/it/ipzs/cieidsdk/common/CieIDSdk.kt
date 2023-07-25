@@ -50,7 +50,7 @@ object CieIDSdk : NfcAdapter.ReaderCallback {
     private var callback: Callback? = null
     internal var deepLinkInfo: DeepLinkInfo = DeepLinkInfo()
     internal var ias: Ias? = null
-    private var idpUrl: String? = null
+    private var idpCustomUrl: String? = null
     internal var enableLog: Boolean = false
     private var ciePin = ""
     // the timeout of transceive(byte[]) in milliseconds (https://developer.android.com/reference/android/nfc/tech/IsoDep#setTimeout(int))
@@ -71,7 +71,7 @@ object CieIDSdk : NfcAdapter.ReaderCallback {
     @SuppressLint("CheckResult")
     fun call(certificate: ByteArray) {
 
-        val idpService: IdpService = NetworkClient(certificate).idpService
+        val idpService: IdpService = NetworkClient(certificate, idpCustomUrl).idpService
         val mapValues = hashMapOf<String, String>().apply {
             put(deepLinkInfo.name!!, deepLinkInfo.value!!)
             put(IdpService.authnRequest, deepLinkInfo.authnRequest ?: "")
@@ -287,7 +287,7 @@ object CieIDSdk : NfcAdapter.ReaderCallback {
     }
 
     fun setCustomIdpUrl(idpUrl: String?) {
-        this.idpUrl = idpUrl
+        this.idpCustomUrl = idpUrl
     }
 
 }
