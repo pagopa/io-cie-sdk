@@ -97,6 +97,18 @@ class CieModule(reactContext: ReactApplicationContext) : ReactContextBaseJavaMod
     }
 
     @ReactMethod
+    fun enableLog(isEnabled: Boolean) {
+        CieIDSdk.enableLog(isEnabled)
+    }
+
+    @ReactMethod
+    fun setDevelopmentEnvironmentUrl(
+        developmentEnvironmentUrl: String?
+    ) {
+        CieIDSdk.setDevelopmentEnvironmentUrl(developmentEnvironmentUrl)
+    }
+
+    @ReactMethod
     fun startListeningNFC(callback: com.facebook.react.bridge.Callback) {
         try {
             CieIDSdk.startNFCListening(getCurrentActivity()!!)

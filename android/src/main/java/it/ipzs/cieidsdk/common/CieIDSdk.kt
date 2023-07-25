@@ -50,7 +50,8 @@ object CieIDSdk : NfcAdapter.ReaderCallback {
     private var callback: Callback? = null
     internal var deepLinkInfo: DeepLinkInfo = DeepLinkInfo()
     internal var ias: Ias? = null
-    var enableLog: Boolean = false
+    private var developmentEnvironmentUrl: String? = null
+    internal var enableLog: Boolean = false
     private var ciePin = ""
     // the timeout of transceive(byte[]) in milliseconds (https://developer.android.com/reference/android/nfc/tech/IsoDep#setTimeout(int))
     // a longer timeout may be useful when performing transactions that require a long processing time on the tag such as key generation.
@@ -89,24 +90,27 @@ object CieIDSdk : NfcAdapter.ReaderCallback {
                 override fun onSuccess(idpResponse: Response<ResponseBody>) {
                     if (idpResponse.isSuccessful) {
                         CieIDSdkLogger.log("onSuccess")
-                        if (idpResponse.body() != null) {
-                            val codiceServer =
-                                idpResponse.body()!!.string().split(":".toRegex()).dropLastWhile { it.isEmpty() }.toTypedArray()[1]
-                            if (!checkCodiceServer(codiceServer)) {
-                                callback?.onEvent(Event(EventError.GENERAL_ERROR))
+                        val responseBody = idpResponse.body()
+                        CieIDSdkLogger.log("$responseBody")
+                        if (responseBody != null) {
+                        val responseString = responseBody.string()
+                        val responseParts = responseString.split(":".toRegex()).dropLastWhile { it.isEmpty() }.toTypedArray()
+                        if (responseParts.size >= 2) {
+                            val serverCode = responseParts[1]
+                            if (!checkCodiceServer(serverCode)) {
+                            callback?.onEvent(Event(EventError.GENERAL_ERROR))
                             }
                             val url =
-                                deepLinkInfo.nextUrl + "?" + deepLinkInfo.name + "=" + deepLinkInfo.value + "&login=1&codice=" + codiceServer
+                            "${deepLinkInfo.nextUrl}?${deepLinkInfo.name}=${deepLinkInfo.value}&login=1&codice=$serverCode"
                             callback?.onSuccess(url)
-
                         } else {
+                            CieIDSdkLogger.log("Missing server code")
                             callback?.onEvent(Event(EventError.AUTHENTICATION_ERROR))
                         }
                     } else {
                         CieIDSdkLogger.log("onError")
                         callback?.onEvent(Event(EventError.AUTHENTICATION_ERROR))
                     }
-
                 }
 
                 override fun onError(e: Throwable) {
@@ -275,8 +279,12 @@ object CieIDSdk : NfcAdapter.ReaderCallback {
         return Build.VERSION.SDK_INT >= Build.VERSION_CODES.M
     }
 
+    fun enableLog(isEnabled: Boolean) {
+        this.enableLog = isEnabled
+    }
 
-
-
+    fun setDevelopmentEnvironmentUrl(developmentEnvironmentUrl: String?) {
+        this.developmentEnvironmentUrl = developmentEnvironmentUrl
+    }
 
 }

@@ -91,6 +91,24 @@ class CieManager {
     }
   }
 
+  enableLog = isEnable => {
+    if (Platform.OS === "ios") {
+      if(!isIosDeviceCompatible) {
+          return;
+      }        
+    }
+    NativeCie.enableLog(isEnable);    
+  }
+    
+  setDevelopmentEnvironmentUrl = devUrl => {
+    if (Platform.OS === "ios") {
+      if(!isIosDeviceCompatible) {
+          return;
+      }        
+    }
+    NativeCie.setDevelopmentEnvironmentUrl(devUrl);
+  }
+
   setAuthenticationUrl = url => {
     if (Platform.OS === "ios") {
         if(!isIosDeviceCompatible){

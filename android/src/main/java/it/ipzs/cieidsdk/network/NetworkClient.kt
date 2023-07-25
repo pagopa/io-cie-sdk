@@ -20,7 +20,10 @@ import javax.net.ssl.TrustManagerFactory
 import javax.net.ssl.X509TrustManager
 
 
-internal class NetworkClient(private val certificate : ByteArray) {
+internal class NetworkClient(
+  private val certificate: ByteArray,
+  private val developmentEnvironmentUrl: String? = null
+) {
 
     init {
         val sslContext = SSLContext.getInstance("TLSv1.2")
@@ -66,7 +69,7 @@ internal class NetworkClient(private val certificate : ByteArray) {
     }
 
     private val retrofitWithRx: Retrofit by lazy {
-        Retrofit.Builder().baseUrl(BuildConfig.BASE_URL_IDP)
+        Retrofit.Builder().baseUrl(developmentEnvironmentUrl ?: BuildConfig.BASE_URL_IDP)
             .client(okHttpClient)
             .addConverterFactory(ScalarsConverterFactory.create())
             .addCallAdapterFactory(RxJava2CallAdapterFactory.create())

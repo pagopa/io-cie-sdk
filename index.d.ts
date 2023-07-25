@@ -3,34 +3,34 @@
 
 // All events returned by onEvent callback
 type CIEEvent =
-    | "ON_TAG_DISCOVERED_NOT_CIE"
-    | "ON_TAG_DISCOVERED"
-    | "ON_TAG_LOST"
-    | "ON_CARD_PIN_LOCKED"
-    | "ON_PIN_ERROR"
-    | "PIN_INPUT_ERROR"
-    | "CERTIFICATE_EXPIRED"
-    | "CERTIFICATE_REVOKED"
-    | "AUTHENTICATION_ERROR"
-    | "ON_NO_INTERNET_CONNECTION"
-    | "STOP_NFC_ERROR"
-    | "START_NFC_ERROR"
-    | "EXTENDED_APDU_NOT_SUPPORTED"
-    // iOS dedicated events
-    | "PIN Locked"
-    | "TAG_ERROR_NFC_NOT_SUPPORTED"
-    | "Transmission Error";
+  | "ON_TAG_DISCOVERED_NOT_CIE"
+  | "ON_TAG_DISCOVERED"
+  | "ON_TAG_LOST"
+  | "ON_CARD_PIN_LOCKED"
+  | "ON_PIN_ERROR"
+  | "PIN_INPUT_ERROR"
+  | "CERTIFICATE_EXPIRED"
+  | "CERTIFICATE_REVOKED"
+  | "AUTHENTICATION_ERROR"
+  | "ON_NO_INTERNET_CONNECTION"
+  | "STOP_NFC_ERROR"
+  | "START_NFC_ERROR"
+  | "EXTENDED_APDU_NOT_SUPPORTED"
+  // iOS dedicated events
+  | "PIN Locked"
+  | "TAG_ERROR_NFC_NOT_SUPPORTED"
+  | "Transmission Error";
 
 type iOSAlertMessageKeys =
-  "readingInstructions"|
-  "moreTags"|
-  "readingInProgress"|
-  "readingSuccess"|
-  "invalidCard"|
-  "tagLost"|
-  "cardLocked"|
-  "wrongPin1AttemptLeft"|
-  "wrongPin2AttemptLeft";
+  | "readingInstructions"
+  | "moreTags"
+  | "readingInProgress"
+  | "readingSuccess"
+  | "invalidCard"
+  | "tagLost"
+  | "cardLocked"
+  | "wrongPin1AttemptLeft"
+  | "wrongPin2AttemptLeft";
 
 export type Event = {
   event: CIEEvent;
@@ -84,6 +84,18 @@ declare class CieManager {
    */
   onSuccess(callback: (url: string) => void): void;
 
+  /**
+   * Enable/Disable CIE SDK logs
+   * @param isEnabled true to enable logs, false to disable
+   */
+  enableLog(isEnabled: boolean): void;
+
+  /**
+   * set the development environment url, leave it empty to use the production environment
+   * @param devUrl the development environment url
+   */
+  setDevelopmentEnvironmentUrl(devUrl: string): void;
+
   setAuthenticationUrl(url: string): void;
 
   /**
@@ -91,7 +103,9 @@ declare class CieManager {
    */
   setPin(pin: string): Promise<void>;
 
-  start(alertMessagesConfig?: Partial<Record<iOSAlertMessageKeys, string>>): Promise<void>;
+  start(
+    alertMessagesConfig?: Partial<Record<iOSAlertMessageKeys, string>>
+  ): Promise<void>;
 
   /**
    * command CIE SDK to start reading/writing CIE CARD
