@@ -66,7 +66,7 @@ RCT_EXPORT_METHOD(setAuthenticationUrl:(NSString*) url) {
   self.url = url;
 }
 
-RCT_EXPORT_METHOD(setCutomIdpUrl:(NSString*) idpUrl) {
+RCT_EXPORT_METHOD(setCustomIdpUrl:(NSString*) idpUrl) {
   [self.cieSDK setCustomIdpUrlWithUrl:idpUrl];
 }
 
