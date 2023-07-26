@@ -258,7 +258,7 @@ SWIFT_CLASS_NAMED("CIEIDSdk") SWIFT_AVAILABILITY(ios,introduced=13.0)
 @property (nonatomic) NSInteger attemptsLeft;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 - (void)setAlertMessageWithKey:(NSString * _Nonnull)key value:(NSString * _Nonnull)value;
-- (void)setCustomIdpUrlWithUrl:(NSString * _Nonnull)url;
+- (void)setCustomIdpUrlWithUrl:(NSString * _Nullable)url;
 - (void)enableLogWithIsEnabled:(BOOL)isEnabled;
 - (void)postWithUrl:(NSString * _Nonnull)url pin:(NSString * _Nonnull)pin completed:(void (^ _Nonnull)(NSString * _Nullable, NSString * _Nullable))completed;
 - (BOOL)hasNFCFeature SWIFT_WARN_UNUSED_RESULT;
