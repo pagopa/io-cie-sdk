@@ -1,16 +1,17 @@
 package it.ipzs.cieidsdk.native_bridge
 
-import com.facebook.react.bridge.*
+import android.app.Activity
+import android.content.Intent
+import android.net.Uri
+import com.facebook.react.bridge.Arguments.createMap
+import com.facebook.react.bridge.ReactApplicationContext
+import com.facebook.react.bridge.ReactContextBaseJavaModule
+import com.facebook.react.bridge.ReactMethod
+import com.facebook.react.bridge.WritableMap
+import com.facebook.react.modules.core.RCTNativeAppEventEmitter
 import it.ipzs.cieidsdk.common.Callback
 import it.ipzs.cieidsdk.common.CieIDSdk
-import com.facebook.react.modules.core.RCTNativeAppEventEmitter
-import com.facebook.react.bridge.Arguments.createMap
-import com.facebook.react.bridge.NativeModule
-import com.facebook.react.bridge.NativeModule.NativeMethod
 import it.ipzs.cieidsdk.event.Event
-import android.content.Intent
-import android.app.Activity
-import android.net.Uri
 
 class CieModule(reactContext: ReactApplicationContext) : ReactContextBaseJavaModule(reactContext),
     Callback {
@@ -94,6 +95,18 @@ class CieModule(reactContext: ReactApplicationContext) : ReactContextBaseJavaMod
     @ReactMethod
     fun setAuthenticationUrl(url: String) {
         CieIDSdk.setUrl(url)
+    }
+
+    @ReactMethod
+    fun enableLog(isEnabled: Boolean) {
+        CieIDSdk.enableLog(isEnabled)
+    }
+
+    @ReactMethod
+    fun setCustomIdpUrl(
+        idpUrl: String?
+    ) {
+        CieIDSdk.setCustomIdpUrl(idpUrl)
     }
 
     @ReactMethod

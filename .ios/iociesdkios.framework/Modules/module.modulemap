@@ -6,6 +6,6 @@ framework module iociesdkios {
 }
 
 module iociesdkios.Swift {
-    header "iociesdkios-Swift.h"
-    requires objc
+  header "iociesdkios-Swift.h"
+  requires objc
 }

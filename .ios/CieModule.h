@@ -23,6 +23,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 -(void) setAuthenticationUrl:(NSString*) url;
 
+-(void) setCutomIdpUrl:(NSString*) idpUrl;
+
+-(void) enableLog:(BOOL) isEnabled;
+
 - (NSString*) getPin;
 
 - (NSString*) getAuthenticationUrl;
