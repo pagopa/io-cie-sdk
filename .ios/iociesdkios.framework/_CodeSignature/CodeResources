@@ -4,6 +4,10 @@
 <dict>
 	<key>files</key>
 	<dict>
+		<key>.DS_Store</key>
+		<data>
+		ESLYFogBPSazb/V/iDfuvbCpdDM=
+		</data>
 		<key>Headers/HTTPSConnection.h</key>
 		<data>
 		YHCz7VFXzA9Qwd0foKVgLDIy5rU=
@@ -14,7 +18,7 @@
 		</data>
 		<key>Headers/iociesdkios-Swift.h</key>
 		<data>
-		ui/9tdJxSFG2rRyaIMfRSofMHug=
+		vqfASwfaavd6byBHXa9gNgiJ5Ew=
 		</data>
 		<key>Headers/iociesdkios.h</key>
 		<data>
@@ -22,11 +26,15 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		VYQFHrM3Bmn+NfhiEvaOvyva/C4=
+		GuRkodFj6WfdGrQtaDELditSY2A=
+		</data>
+		<key>Modules/.DS_Store</key>
+		<data>
+		aOPfouNQRfKhUxy5SwVs1FTW614=
 		</data>
 		<key>Modules/iociesdkios.swiftmodule/Project/arm64-apple-ios.swiftsourceinfo</key>
 		<data>
-		KrBWnf/mW7oFK0ebPQxEq5zhZsg=
+		aPKtN9MoggqXktNDO5odswJR9mc=
 		</data>
 		<key>Modules/iociesdkios.swiftmodule/arm64-apple-ios.abi.json</key>
 		<data>
@@ -34,15 +42,15 @@
 		</data>
 		<key>Modules/iociesdkios.swiftmodule/arm64-apple-ios.swiftdoc</key>
 		<data>
-		nL7FZvY7dq/FL6BMzN07jrR/uew=
+		BdNHzbB2739XciziqYX/7nJIscM=
 		</data>
 		<key>Modules/iociesdkios.swiftmodule/arm64-apple-ios.swiftmodule</key>
 		<data>
-		8Z5PS4Lt7HBGcn0bhfoUvWHBgPs=
+		GzxLKP1goWEBdaxtkqVUU0pq7Eg=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
-		568XqXfzack8PLkB1a+MWUONDXQ=
+		Ul8xMrISRUF5PR0ufZBaJpWYws0=
 		</data>
 		<key>include/curl/curl.h</key>
 		<data>
@@ -525,11 +533,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			ui/9tdJxSFG2rRyaIMfRSofMHug=
+			vqfASwfaavd6byBHXa9gNgiJ5Ew=
 			</data>
 			<key>hash2</key>
 			<data>
-			zQNv6HUPVkjeeOMOPg3S+VMZWHAMo+z+K9JHnAlSHpU=
+			YHZvz7MUuzEWQvezr6Y45mVgjUCcXZhFmEvjn1W7itw=
 			</data>
 		</dict>
 		<key>Headers/iociesdkios.h</key>
@@ -547,11 +555,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			KrBWnf/mW7oFK0ebPQxEq5zhZsg=
+			aPKtN9MoggqXktNDO5odswJR9mc=
 			</data>
 			<key>hash2</key>
 			<data>
-			CiMblthTjp/9djnnip00ulWDzACK0uFuWeQxRn/T54w=
+			ufX1vioA9v1VEo6vWABnf5uSOH/qiGd5oGvsSuDq/3Q=
 			</data>
 		</dict>
 		<key>Modules/iociesdkios.swiftmodule/arm64-apple-ios.abi.json</key>
@@ -569,33 +577,33 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			nL7FZvY7dq/FL6BMzN07jrR/uew=
+			BdNHzbB2739XciziqYX/7nJIscM=
 			</data>
 			<key>hash2</key>
 			<data>
-			fXtMGQRS+/aK3l509j2BBuHC0tWbqKDDYLxb3xPH91M=
+			PWKoQetm4MhgJWNlporKlhHAdCxRSxE8J+CFIRUcn/I=
 			</data>
 		</dict>
 		<key>Modules/iociesdkios.swiftmodule/arm64-apple-ios.swiftmodule</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			8Z5PS4Lt7HBGcn0bhfoUvWHBgPs=
+			GzxLKP1goWEBdaxtkqVUU0pq7Eg=
 			</data>
 			<key>hash2</key>
 			<data>
-			wEL30lCfdr/PCrfnfg5ack0TFsxYxHbcuAE0mJ0Jur0=
+			B55IB9G44TYq8neylcYuu/sEXYSVb80AClEk7lsGUI0=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			568XqXfzack8PLkB1a+MWUONDXQ=
+			Ul8xMrISRUF5PR0ufZBaJpWYws0=
 			</data>
 			<key>hash2</key>
 			<data>
-			huZhdbm2CLMW/qopeTNTR5LhMjJEuHkaru4M43MnaKQ=
+			7iAGY9pLbK3Snxzj1ZCOaoC7ECvIdRcT/mQX94citAc=
 			</data>
 		</dict>
 		<key>include/curl/curl.h</key>

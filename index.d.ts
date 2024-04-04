@@ -30,7 +30,8 @@ type iOSAlertMessageKeys =
   | "tagLost"
   | "cardLocked"
   | "wrongPin1AttemptLeft"
-  | "wrongPin2AttemptLeft";
+  | "wrongPin2AttemptLeft"
+  | "genericError";
 
 export type Event = {
   event: CIEEvent;
