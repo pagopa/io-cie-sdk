@@ -16,13 +16,7 @@ jobs:
           registry-url: "https://registry.npmjs.org"
       - name: Install dependencies and build with builder bob
         run: yarn install --frozen-lockfile
-      - name: Prepare NPM package files
-        run: |
-          mkdir -p ./dist
-          cp README.md CHANGELOG.md package.json index.js index.d.ts .react-native-cie.podspec ./dist/
-          cp -r .ios ./dist/
-          cp -r android ./dist/
       - name: Publish package on NPM
-        run: npm publish ./dist --access=public
+        run: npm publish --access=public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

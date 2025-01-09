@@ -36,7 +36,8 @@
     "danger": "^10.6.0",
     "danger-plugin-digitalcitizenship": "^1.0.0",
     "release-it": "15.5.0",
-    "@release-it/conventional-changelog": "5.0.0"
+    "@release-it/conventional-changelog": "5.0.0",
+    "test-npm-publish": "npm publish --dry-run"
   },
   "release-it": {
     "git": {
