@@ -14,7 +14,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "preversion": "auto-changelog  --config .auto-changelog.json --unreleased --commit-limit false --stdout --template preview.hbs",
-    "version": "auto-changelog -p --config .auto-changelog.json --unreleased && git add CHANGELOG.md"
+    "version": "auto-changelog -p --config .auto-changelog.json --unreleased && git add CHANGELOG.md",
+    "release": "release-it"
   },
   "repository": {
     "type": "git",
@@ -33,7 +34,26 @@
   "devDependencies": {
     "auto-changelog": "^2.2.1",
     "danger": "^10.6.0",
-    "danger-plugin-digitalcitizenship": "^1.0.0"
+    "danger-plugin-digitalcitizenship": "^1.0.0",
+    "release-it": "15.5.0",
+    "@release-it/conventional-changelog": "5.0.0"
+  },
+  "release-it": {
+    "git": {
+      "commitMessage": "chore: release ${version}",
+      "tagName": "v${version}",
+      "changelog": "yarn auto-changelog --stdout --commit-limit false -u --template https://raw.githubusercontent.com/release-it/release-it/master/templates/changelog-compact.hbs"
+    },
+    "hooks": {
+      "after:bump": "yarn auto-changelog -p && git add ."
+    },
+    "npm": {
+      "publish": false
+    },
+    "github": {
+      "release": true
+    },
+    "plugins": {}
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org/",
