@@ -1,6 +1,6 @@
 {
   "name": "@pagopa/react-native-cie",
-  "version": "1.4.0",
+  "version": "1.4.1",
   "description": "CIE (Carta di Identità Elettronica) module for react native.",
   "main": "index.js",
   "types": "index.d.ts",
@@ -37,7 +37,7 @@
     "danger": "^10.6.0",
     "danger-plugin-digitalcitizenship": "^1.0.0",
     "release-it": "15.5.0",
-    "@release-it/conventional-changelog": "5.0.0"    
+    "@release-it/conventional-changelog": "5.0.0"
   },
   "release-it": {
     "git": {
